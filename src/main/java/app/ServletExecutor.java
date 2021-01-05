@@ -5,7 +5,7 @@ import java.time.Instant;
 import java.util.Date;
 
 
-public class AgeCalc {
+public class ServletExecutor {
 
     public static void main(String[] args) {
         System.out.println("Number of Days between dates: " + Calculator());

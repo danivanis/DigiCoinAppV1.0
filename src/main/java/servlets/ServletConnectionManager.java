@@ -1,6 +1,6 @@
 package servlets;
 
-import app.AgeCalc;
+import app.ServletExecutor;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "AgeCalcServlet", urlPatterns = "/myAge")
-public class AgeCalcServlet extends HttpServlet {
+public class ServletConnectionManager extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -23,7 +23,7 @@ public class AgeCalcServlet extends HttpServlet {
         //generate html
         out.println("<html><body>");
         out.println("<title>Age Calculator</title>");
-        out.println("Danut Ivanis was born " + AgeCalc.Calculator() + " days ago!");
+        out.println("Danut Ivanis was born " + ServletExecutor.Calculator() + " days ago!");
         out.println("</body><html>");
 
         out.println("<html>\n" +
