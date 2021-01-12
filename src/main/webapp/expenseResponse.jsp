@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body{
-            background-image: url('https://i.ibb.co/XWbcjWw/Digi-Coin-Personal-Expense-Tracker.jpg');
+            background-image: url('https://i.ibb.co/myz6bNT/Digi-Coin-Personal-Expense-Tracker-background.jpg');
             height: 100%;
             background-attachment:fixed;
             background-repeat: no-repeat;
