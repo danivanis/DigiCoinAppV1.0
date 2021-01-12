@@ -213,20 +213,20 @@
         </form>
     </div>
 
-    <div id="button" style="background-color: GoldenRod;"><span>Add a new entry</span></div>
+    <div id="button" style="background-color: GoldenRod;"><span>Update entry</span></div>
 
-<%--    <table>--%>
-<%--        <tr>--%>
-<%--            <th id="type" class="center" bgcolor="SlateGrey">Source</th>--%>
-<%--            <th bgcolor="SlateGrey">Details</th>--%>
-<%--            <th id="date" bgcolor="SlateGrey">Date</th>--%>
-<%--            <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>--%>
-<%--        </tr>--%>
-<%--        <tr id="if-empty">--%>
-<%--            <td colspan="4"><span>Your added items will show up here!</span></td>--%>
-<%--        </tr>--%>
+    <%--    <table>--%>
+    <%--        <tr>--%>
+    <%--            <th id="type" class="center" bgcolor="SlateGrey">Source</th>--%>
+    <%--            <th bgcolor="SlateGrey">Details</th>--%>
+    <%--            <th id="date" bgcolor="SlateGrey">Date</th>--%>
+    <%--            <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>--%>
+    <%--        </tr>--%>
+    <%--        <tr id="if-empty">--%>
+    <%--            <td colspan="4"><span>Your added items will show up here!</span></td>--%>
+    <%--        </tr>--%>
 
-<%--    </table>--%>
+    <%--    </table>--%>
 
 </div>
 

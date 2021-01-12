@@ -1,41 +1,97 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
-    <title>DigiCoin Homepage</title>
+    <title>DigiCoin Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://i.imgur.com/YvUftM3.jpg');
+            height: 100%;
+            background-attachment:fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin: 20px 0;
+            font-weight: 100;
+        }
+
+        h1, h2 {
+            color: #F5F7FA;
+            text-align: center;
+        }
+
+        /* Style the side navigation */
+        .sidenav {
+            height: 100%;
+            width: 150px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: SlateGrey;
+            overflow-x: hidden;
+        }
+
+
+        /* Side navigation links */
+        .sidenav a {
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color on hover */
+        .sidenav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Style the content */
+        .content {
+            margin-left: 200px;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
-<div align="center">
-    <h1>Expense tracking</h1>
-    <form action="<%= request.getContextPath() %>/register" method="post">
-        <table style="with: 80%">
-            <tr>
-                <td>First Name</td>
-                <td><input type="text" name="firstName" /></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><input type="text" name="lastName" /></td>
-            </tr>
-            <tr>
-                <td>UserName</td>
-                <td><input type="text" name="username" /></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password" /></td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td><input type="text" name="address" /></td>
-            </tr>
-            <tr>
-                <td>Contact No</td>
-                <td><input type="text" name="contact" /></td>
-            </tr>
-        </table>
-        <input type="submit" value="Submit" />
-    </form>
+
+<div class="sidenav">
+    <a href="#">Home</a>
+    <a href="#">New entries</a>
+    <a href="#">Edit entries</a>
+    <a href="#">Find entries</a>
+    <a href="#">List entries</a>
+    <a href="#">Delete entries</a>
+    <a href="#">Exit</a>
 </div>
+
+<div class="content">
+    <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
+    <br>
+    <br>
+    <h2 style="color:DimGrey;">Welcome to DigiCoin, your personal expense tracker!
+        <br>
+        <br>
+        On the left of the screen you'll have the buttons to navigate through the site.
+    </h2>
+</div>
+
 </body>
+
 </html>
