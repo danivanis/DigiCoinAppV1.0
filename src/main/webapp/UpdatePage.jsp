@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin Home</title>
+    <title>DigiCoin Edit entries</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -172,13 +172,14 @@
 <body>
 
 <div class="sidenav">
-    <a href="#">Home</a>
-    <a href="#">New entries</a>
-    <a href="#">Edit entries</a>
-    <a href="#">Find entries</a>
-    <a href="#">List entries</a>
-    <a href="#">Delete entries</a>
-    <a href="#">Exit</a>
+    <p><a href="http://localhost:8080">&#127968; Home</a></p>
+    <p><a href="http://localhost:8080/InputPage.jsp">&#128181; New entries</a></p>
+    <p><a href="http://localhost:8080/UpdatePage.jsp">&#128221; Edit entries</a></p>
+    <a href="#">&#128270; Find entries</a>
+    <a href="#">&#128195; List entries</a>
+    <a href="#">&#128465; Delete entries</a>
+    <br>
+    <a href="http://localhost:8080/About.jsp">&#9187; About</a>
 </div>
 
 <div class="content">
