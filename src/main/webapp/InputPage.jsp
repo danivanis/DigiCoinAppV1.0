@@ -168,6 +168,13 @@
             padding-left: 20px;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
 </head>
 <body>
 
@@ -186,11 +193,11 @@
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
     <br>
     <div id="form-box">
-        <form>
+        <form <%--action="<%= request.getContextPath() %>/InputPage.jsp"--%> method="post">
             <meta charset="ISO-8859-1">
             <div>
                 <span style="color:Black;"><b>Source:</b></span>
-                <select name="type" style="color:DimGrey;">
+                <select name="source" style="color:DimGrey;">
                     <option value="debitcard">Debit Card</option>
                     <option value="creditcard">Credit Card</option>
                     <option value="cash">Cash</option>
@@ -200,11 +207,12 @@
             </div>
 
             <div>
-                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="item-name" placeholder="Entry description">
+                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description">
             </div>
 
             <div>
-                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" placeholder="dd/mm/yyyy">
+                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" <%--placeholder="yyyy-MM-dd"--%> <%--id="datepicker"--%>>
+
             </div>
 
             <div>
@@ -212,9 +220,10 @@
             </div>
 
         </form>
+
     </div>
 
-    <div id="button" style="background-color: GoldenRod;"><span>Add a new entry</span></div>
+    <div button type="submit" id="button" style="background-color: GoldenRod;" value="Submit"><span>Add a new entry</span></div>
 
 <%--    <table>--%>
 <%--        <tr>--%>

@@ -1,8 +1,6 @@
 package entities;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class Record {
 
@@ -10,12 +8,15 @@ public class Record {
     private Date entryDate;
     private String description;
     private double amount;
+    private String source;
 
-    public Record(){
+
+    public Record() {
 
     }
 
-    public Record(Date entryDate, String description, double amount){
+    public Record(String source, Date entryDate, String description, double amount) {
+        this.source = source;
         this.entryDate = entryDate;
         this.description = description;
         this.amount = amount;
@@ -51,5 +52,13 @@ public class Record {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }
