@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,8 +175,8 @@
 
 <div class="sidenav">
     <p><a href="http://localhost:8080">&#127968; Home</a></p>
-    <p><a href="http://localhost:8080/InputPage.jsp">&#128181; New entries</a></p>
-    <p><a href="http://localhost:8080/UpdatePage.jsp">&#128221; Edit entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
     <a href="#">&#128195; List entries</a>
     <a href="#">&#128465; Delete entries</a>
@@ -183,14 +185,15 @@
 </div>
 
 <div class="content">
+    <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
     <br>
     <div id="form-box">
-        <form>
+        <form method="post">
             <meta charset="ISO-8859-1">
             <div>
                 <span style="color:Black;"><b>Source:</b></span>
-                <select name="type" style="color:DimGrey;">
+                <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                     <option value="debitcard">Debit Card</option>
                     <option value="creditcard">Credit Card</option>
                     <option value="cash">Cash</option>
@@ -200,21 +203,26 @@
             </div>
 
             <div>
-                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="item-name" placeholder="Entry description">
+                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
 
             <div>
-                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" placeholder="dd/mm/yyyy">
+                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
-
             <div>
-                <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" placeholder="What was the value?" style="color:DimGrey;">
+                <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" placeholder="What was the value?" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <button type="submit" id="button" style="background-color: GoldenRod; margin-left: 110%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Update entry</span></button>
             </div>
 
         </form>
+
     </div>
 
-    <div id="button" style="background-color: GoldenRod;"><span>Update entry</span></div>
+</div>
 
     <%--    <table>--%>
     <%--        <tr>--%>
@@ -228,8 +236,6 @@
     <%--        </tr>--%>
 
     <%--    </table>--%>
-
-</div>
 
 </body>
 

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,8 +115,8 @@
 
 <div class="sidenav">
     <p><a href="http://localhost:8080">&#127968; Home</a></p>
-    <p><a href="http://localhost:8080/InputPage.jsp">&#128181; New entries</a></p>
-    <p><a href="http://localhost:8080/UpdatePage.jsp">&#128221; Edit entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
     <a href="#">&#128195; List entries</a>
     <a href="#">&#128465; Delete entries</a>

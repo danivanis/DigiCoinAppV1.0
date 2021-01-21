@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,8 +75,8 @@
 
 <div class="sidenav">
     <p><a href="http://localhost:8080">&#127968; Home</a></p>
-    <p><a href="http://localhost:8080/InputPage.jsp">&#128181; New entries</a></p>
-    <p><a href="http://localhost:8080/UpdatePage.jsp">&#128221; Edit entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
     <a href="#">&#128195; List entries</a>
     <a href="#">&#128465; Delete entries</a>
@@ -83,10 +85,11 @@
 </div>
 
 <div class="content">
+    <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
     <br>
     <br>
-    <h2 style="color:Chartreuse;">Your action was successful!
+    <h2 style="color:GoldenRod;/*text-shadow: 0 5px 5px DimGrey;*/"><b>Your action was successful!</b>
     </h2>
 </div>
 

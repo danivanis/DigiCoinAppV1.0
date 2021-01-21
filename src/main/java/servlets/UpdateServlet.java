@@ -1,7 +1,6 @@
 package servlets;
 
 import DAO.RecordDaoImpl;
-import app.ServletExecutor;
 import entities.Record;
 
 import javax.servlet.ServletException;
@@ -10,17 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-@WebServlet(urlPatterns = {"/InputPage"})
+@WebServlet(urlPatterns = {"/UpdatePage"})
 
-public class InputServlet extends HttpServlet {
+public class UpdateServlet extends HttpServlet {
     private RecordDaoImpl recordDaoImpl;
 
     public void init(){
@@ -30,7 +25,7 @@ public class InputServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e inputpage doPost");
         String source = request.getParameter("source");
-        java.util.Date entryDate = null;
+        Date entryDate = null;
         try {
             entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
 
@@ -63,7 +58,7 @@ public class InputServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e inputpage doGet");
 
-        request.getRequestDispatcher("/InputPage.jsp").forward(request, response);
+        request.getRequestDispatcher("/UpdatePage.jsp").forward(request, response);
 
     }
 }

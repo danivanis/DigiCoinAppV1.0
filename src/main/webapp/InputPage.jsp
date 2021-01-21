@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -170,18 +172,14 @@
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-    </script>
+
 </head>
 <body>
 
 <div class="sidenav">
     <p><a href="http://localhost:8080">&#127968; Home</a></p>
-    <p><a href="http://localhost:8080/InputPage.jsp">&#128181; New entries</a></p>
-    <p><a href="http://localhost:8080/UpdatePage.jsp">&#128221; Edit entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
     <a href="#">&#128195; List entries</a>
     <a href="#">&#128465; Delete entries</a>
@@ -190,14 +188,15 @@
 </div>
 
 <div class="content">
+    <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
     <br>
     <div id="form-box">
-        <form <%--action="<%= request.getContextPath() %>/InputPage.jsp"--%> method="post">
+        <form method="post">
             <meta charset="ISO-8859-1">
             <div>
                 <span style="color:Black;"><b>Source:</b></span>
-                <select name="source" style="color:DimGrey;">
+                <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                     <option value="debitcard">Debit Card</option>
                     <option value="creditcard">Credit Card</option>
                     <option value="cash">Cash</option>
@@ -207,36 +206,24 @@
             </div>
 
             <div>
-                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description">
+                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
 
             <div>
-                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" <%--placeholder="yyyy-MM-dd"--%> <%--id="datepicker"--%>>
-
+                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
-
             <div>
-                <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" placeholder="What was the value?" style="color:DimGrey;">
+                <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" placeholder="What was the value?" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <button type="submit" id="button" style="background-color: GoldenRod; margin-left: 110%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Add a new entry</span></button>
             </div>
 
         </form>
 
     </div>
-
-    <div button type="submit" id="button" style="background-color: GoldenRod;" value="Submit"><span>Add a new entry</span></div>
-
-<%--    <table>--%>
-<%--        <tr>--%>
-<%--            <th id="type" class="center" bgcolor="SlateGrey">Source</th>--%>
-<%--            <th bgcolor="SlateGrey">Details</th>--%>
-<%--            <th id="date" bgcolor="SlateGrey">Date</th>--%>
-<%--            <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>--%>
-<%--        </tr>--%>
-<%--        <tr id="if-empty">--%>
-<%--            <td colspan="4"><span>Your added items will show up here!</span></td>--%>
-<%--        </tr>--%>
-
-<%--    </table>--%>
 
 </div>
 
