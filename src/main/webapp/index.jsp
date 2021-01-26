@@ -76,7 +76,7 @@
 <div class="sidenav">
     <p><a href="http://localhost:8080">&#127968; Home</a></p>
     <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
-    <<p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
     <a href="#">&#128195; List entries</a>
     <a href="#">&#128465; Delete entries</a>
