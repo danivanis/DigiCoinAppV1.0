@@ -1,9 +1,9 @@
 package servlets;
 
 import DAO.RecordDaoImpl;
-import app.ServletExecutor;
 import entities.Record;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @WebServlet(urlPatterns = {"/InputPage"})
 
@@ -33,7 +29,6 @@ public class InputServlet extends HttpServlet {
         java.util.Date entryDate = null;
         try {
             entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-
             System.out.println(entryDate);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -57,7 +52,8 @@ public class InputServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("SuccessResponse.jsp");
+        response.sendRedirect("InputPage.jsp");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

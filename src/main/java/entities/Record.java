@@ -22,6 +22,11 @@ public class Record {
         this.amount = amount;
     }
 
+    public Record(Integer id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

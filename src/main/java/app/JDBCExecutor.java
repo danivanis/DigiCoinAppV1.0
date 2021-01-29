@@ -41,19 +41,19 @@ public class JDBCExecutor {
 //        }
 //
         RecordDaoImpl pdi = new RecordDaoImpl();
-//        pdi.createRecordsTable();
+        pdi.createRecordsTable();
 
-        String inputDate = "2020-10-11";
-        Date date = null;
-        try {
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(inputDate);
+//        String inputDate = "2020-10-11";
+//        Date date = null;
+//        try {
+//            date = new SimpleDateFormat("yyyy-MM-dd").parse(inputDate);
 //            System.out.println(date);
 //            System.out.println(date1);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        java.sql.Date date1 = new java.sql.Date(date.getTime());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//        java.sql.Date date1 = new java.sql.Date(date.getTime());
 //        System.out.println(date1);
 
 //        Record record1 = new Record("Credit card", date1, "test", -123);

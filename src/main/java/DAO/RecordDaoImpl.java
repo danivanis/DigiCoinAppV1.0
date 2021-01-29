@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordDaoImpl implements RecordDao {
+
     @Override
     public void createRecordsTable() {
         Connection connection = null;
@@ -290,5 +291,52 @@ public class RecordDaoImpl implements RecordDao {
                 }
             }
         }
+    }
+
+    public List<Record> list() throws SQLException {
+        List<Record> listRecord = new ArrayList<>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try{
+            connection = DatabaseConnectionManager.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM record ORDER BY id");
+            while (resultSet.next()){
+                Integer id = resultSet.getInt("id");
+                String entryDescription = resultSet.getString("entry_description");
+                Record record = new Record(id, entryDescription);
+                listRecord.add(record);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (resultSet != null){
+                try {
+                    resultSet.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if (statement != null){
+                try {
+                    statement.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return listRecord;
     }
 }
