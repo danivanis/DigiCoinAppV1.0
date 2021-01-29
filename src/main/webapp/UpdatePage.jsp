@@ -201,7 +201,7 @@
         <form method="post">
             <meta charset="ISO-8859-1">
 
-            <div style="margin-left: 25%"">
+            <div style="margin-left: 25%";>
                 <span style="color:Black;"><b>Entry ID:</b></span> <input type="number" name="entryid" placeholder="Entry ID" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
             <br>
