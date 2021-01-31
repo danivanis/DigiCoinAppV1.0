@@ -13,11 +13,11 @@ import java.io.IOException;
 public class SuccessRspServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e inputpage doPost");
+        System.out.println("aici e SuccessResponse doPost");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e inputpage doGet");
+        System.out.println("aici e SuccessResponse doGet");
 
         request.getRequestDispatcher("/SuccessResponse.jsp").forward(request, response);
 

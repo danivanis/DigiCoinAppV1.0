@@ -81,7 +81,7 @@
     <a href="#">&#128195; List entries</a>
     <a href="#">&#128465; Delete entries</a>
     <br>
-    <a href="http://localhost:8080/About.jsp">&#9187; About</a>
+    <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
 </div>
 
 <div class="content">
