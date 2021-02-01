@@ -78,7 +78,7 @@
     <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
     <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
-    <a href="#">&#128195; List entries</a>
+    <p><a href="${pageContext.request.contextPath}/ReportPage">&#128195; List entries</a></p>
     <a href="#">&#128465; Delete entries</a>
     <br>
     <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>

@@ -24,6 +24,13 @@ import java.text.SimpleDateFormat;
 @WebServlet(urlPatterns = {"/PieChart"})
 public class PieChartServlet extends HttpServlet {
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("aici e pieChart doPost");
+
+        response.sendRedirect("PieChart.jsp");
+
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -77,13 +84,6 @@ public class PieChartServlet extends HttpServlet {
         chart.setBorderVisible(false);
 
         return chart;
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e pieChart doPost");
-
-        response.sendRedirect("PieChart.jsp");
-
     }
 
 }
