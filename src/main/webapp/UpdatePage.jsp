@@ -197,7 +197,6 @@
 <div class="content">
     <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
-    <br>
     <div id="form-box">
         <form method="post">
             <meta charset="ISO-8859-1">
