@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin Edit entries</title>
+    <title>DigiCoin Entry List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -64,11 +64,12 @@
             position: relative;
             top: 0;
             color: #F5F7FA;
-            padding: 20px;
+            font-size:15px;
             text-align: center;
-            line-height: 24px;
-            width: 200px;
-            background-color: #4FC1E9;
+            line-height: 16px;
+            display: inline-block;
+            width: 640px;
+            background-color: #df489d;
             border-radius: 3px;
             cursor: pointer;
             margin: auto;
@@ -78,6 +79,7 @@
         #button:active {
             position: relative;
             box-shadow: 0 0px #4A89DC;
+            display: inline-block;
             top: 3px;
             box-shadow: 0 0;
         }
@@ -175,7 +177,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         function myFunction() {
-            alert("Update was successful!");
+            // alert("Update was successful!");
             window.open("http://localhost:8080/PieChart", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720")
         }
 
@@ -185,11 +187,11 @@
 <body>
 
 <div class="sidenav">
-    <p><a href="http://localhost:8080">&#127968; Home</a></p>
+    <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>
     <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
     <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
-    <p><a href="${pageContext.request.contextPath}/ReportPage">&#128195; List entries</a></p>
+    <p><a href="${pageContext.request.contextPath}/OverviewPage">&#128195; List entries</a></p>
     <a href="#">&#128465; Delete entries</a>
     <br>
     <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
@@ -198,41 +200,31 @@
 <div class="content">
     <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
-    <br>
     <div id="form-box">
         <form method="post">
             <meta charset="ISO-8859-1">
 
-            <div style="margin-left: 25%";>
-                <span style="color:Black;"><b>Entry ID:</b></span> <input type="number" name="entryid" placeholder="Entry ID" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
-            <br>
             <div>
-                <span style="color:Black;"><b>Source:</b></span>
-                <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                    <option value="debitcard">Debit Card</option>
-                    <option value="creditcard">Credit Card</option>
-                    <option value="cash">Cash</option>
-                    <option value="mealvouchers">Meal vouchers</option>
-                    <option value="other">Other</option>
-                </select>
+                <button onclick="myFunction()" type="submit" id="button" style="background-color: #df4885; margin-left: 0%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show data in Pie Chart!</b></button>
             </div>
 
-            <div>
-                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
+            <table>
+                <tr>
+                    <th id="type" class="center" bgcolor="SlateGrey">Source</th>
+                    <th bgcolor="SlateGrey">Details</th>
+                    <th id="date" style="text-align: center" bgcolor="SlateGrey">Date</th>
+                    <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>
+                </tr>
+                <c:forEach items = "${list}" var = "records">
+                    <tr>
+                        <td style="text-align: center">${records.source}</td>
+                        <td>${records.description}</td>
+                        <td style="text-align: center">${records.entryDate}</td>
+                        <td style="text-align: right" >${records.amount}</td>
+                    </tr>
+                </c:forEach>
 
-            <div>
-                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
-            <div>
-                <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" step="0.01" placeholder="What was the value?" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
-            <br>
-            <br>
-            <div>
-                <button type="submit" onclick="myFunction()"  id="button" style="background-color: GoldenRod; margin-left: 110%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Update entry</span></button>
-            </div>
+            </table>
 
         </form>
 
@@ -240,18 +232,7 @@
 
 </div>
 
-    <%--    <table>--%>
-    <%--        <tr>--%>
-    <%--            <th id="type" class="center" bgcolor="SlateGrey">Source</th>--%>
-    <%--            <th bgcolor="SlateGrey">Details</th>--%>
-    <%--            <th id="date" bgcolor="SlateGrey">Date</th>--%>
-    <%--            <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>--%>
-    <%--        </tr>--%>
-    <%--        <tr id="if-empty">--%>
-    <%--            <td colspan="4"><span>Your added items will show up here!</span></td>--%>
-    <%--        </tr>--%>
 
-    <%--    </table>--%>
 
 
 </body>

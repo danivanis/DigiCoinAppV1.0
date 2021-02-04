@@ -1,0 +1,45 @@
+package servlets;
+
+import DAO.RecordDaoImpl;
+import entities.Record;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+@WebServlet(urlPatterns = {"/OverviewPage"})
+
+public class OverviewServlet extends HttpServlet {
+    private RecordDaoImpl recordDaoImpl;
+
+    public void init(){
+        recordDaoImpl = new RecordDaoImpl();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("aici e overviewpage doPost");
+
+        response.sendRedirect("/OverviewPage.jsp");
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("aici e overviewpage doGet");
+
+        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
+        List<Record> records = recordDaoImpl.selectAll();
+
+        request.setAttribute("list", records);
+
+
+        request.getRequestDispatcher("/OverviewPage.jsp").forward(request, response);
+
+    }
+}

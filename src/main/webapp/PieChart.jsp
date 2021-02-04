@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin New entries</title>
+    <title>DigiCoin Pie Chart</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -183,22 +183,11 @@
 <body>
 
 <div class="sidenav">
-    <p><a href="http://localhost:8080">&#127968; Home</a></p>
+    <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>
     <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
     <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
-    <p><a href="${pageContext.request.contextPath}/ReportPage">&#128195; List entries</a></p>
-    <a href="#">&#128465; Delete entries</a>
-    <br>
-    <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
-</div>
-
-<div class="sidenav">
-    <p><a href="http://localhost:8080">&#127968; Home</a></p>
-    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
-    <a href="#">&#128270; Find entries</a>
-    <a href="#">&#128195; List entries</a>
+    <p><a href="${pageContext.request.contextPath}/OverviewPage">&#128195; List entries</a></p>
     <a href="#">&#128465; Delete entries</a>
     <br>
     <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
@@ -209,10 +198,9 @@
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
     <br>
     <br>
-<%--    <%response.setIntHeader("Refresh",5);%>--%>
+
     <form id="form-box">
         <img src='C:/Users/Dan/IdeaProjects/DigiCoinAppV1.0/PieChart.jpeg' width="600" height="400" border="0">
-<%--        <input type="button" onclick="refreshpage()" value="Refresh"/>--%>
     </form>
 
 </div>
