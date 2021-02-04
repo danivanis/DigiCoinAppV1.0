@@ -203,11 +203,11 @@
             <div>
                 <span style="color:Black;"><b>Source:</b></span>
                 <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                    <option value="debitcard">Debit Card</option>
-                    <option value="creditcard">Credit Card</option>
-                    <option value="cash">Cash</option>
-                    <option value="mealvouchers">Meal vouchers</option>
-                    <option value="other">Other</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Meal Vouchers">Meal Vouchers</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 

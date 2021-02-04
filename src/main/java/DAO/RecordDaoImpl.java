@@ -184,7 +184,7 @@ public class RecordDaoImpl implements RecordDao {
         try{
             connection = DatabaseConnectionManager.getConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM record");
+            resultSet = statement.executeQuery("SELECT * FROM record ORDER BY id ASC");
             while (resultSet.next()){
                 Record record = new Record();
                 record.setId(resultSet.getInt("id"));

@@ -39,8 +39,8 @@
 
         table {
             text-align: left;
-            width: 640px;
-            margin: 30px auto;
+            width: 700px;
+            margin: 10px auto;
             border-radius: 3px;
             background-color: #fff;
         }
@@ -68,7 +68,7 @@
             text-align: center;
             line-height: 16px;
             display: inline-block;
-            width: 640px;
+            width: 700px;
             background-color: #df489d;
             border-radius: 3px;
             cursor: pointer;
@@ -85,9 +85,9 @@
         }
 
         #form-box {
-            width: 650px;
-            margin: 30px auto;
-            padding-left: 15px;
+            width: 700px;
+            margin: 20px auto;
+            padding-left: 0px;
         }
 
         form {
@@ -210,17 +210,19 @@
 
             <table>
                 <tr>
+                    <th id="number" style="width:10px" class="center" bgcolor="SlateGrey">ID</th>
                     <th id="type" class="center" bgcolor="SlateGrey">Source</th>
-                    <th bgcolor="SlateGrey">Details</th>
                     <th id="date" style="text-align: center" bgcolor="SlateGrey">Date</th>
                     <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>
+                    <th bgcolor="SlateGrey">Details</th>
                 </tr>
                 <c:forEach items = "${list}" var = "records">
                     <tr>
+                        <td style="text-align: center">${records.id}</td>
                         <td style="text-align: center">${records.source}</td>
-                        <td>${records.description}</td>
                         <td style="text-align: center">${records.entryDate}</td>
                         <td style="text-align: right" >${records.amount}</td>
+                        <td>${records.description}</td>
                     </tr>
                 </c:forEach>
 
