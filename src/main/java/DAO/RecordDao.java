@@ -15,6 +15,8 @@ public interface RecordDao {
 
     Record selectByDate(Date date);
 
+    Record selectByCategory(String category);
+
     List<Record> selectAll();
 
     void delete(int id);

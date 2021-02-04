@@ -1,5 +1,7 @@
 package servlets;
 
+import DAO.RecordDaoImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +21,10 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e index doGet");
+
+        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
+
+        recordDaoImpl.createRecordsTable();
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
 

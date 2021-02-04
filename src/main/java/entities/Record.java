@@ -7,6 +7,7 @@ public class Record {
     private Integer id;
     private Date entryDate;
     private String description;
+    private String category;
     private double amount;
     private String source;
 
@@ -15,16 +16,17 @@ public class Record {
 
     }
 
-    public Record(String source, Date entryDate, String description, double amount) {
+    public Record(String source, String category, Date entryDate, String description, double amount) {
         this.source = source;
         this.entryDate = entryDate;
         this.description = description;
         this.amount = amount;
+        this.category = category;
     }
 
-    public Record(Integer id, String description) {
+    public Record(Integer id, String category) {
         this.id = id;
-        this.description = description;
+        this.category = category;
     }
 
     public Integer getId() {
@@ -65,5 +67,13 @@ public class Record {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

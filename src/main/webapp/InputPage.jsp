@@ -66,8 +66,9 @@
             color: #F5F7FA;
             padding: 20px;
             text-align: center;
-            line-height: 24px;
-            width: 200px;
+            line-height: 20px;
+            display: inline-block;
+            width: 400px;
             background-color: #4FC1E9;
             border-radius: 3px;
             cursor: pointer;
@@ -78,12 +79,13 @@
         #button:active {
             position: relative;
             box-shadow: 0 0px #4A89DC;
+            display: inline-block;
             top: 3px;
             box-shadow: 0 0;
         }
 
         #form-box {
-            width: 650px;
+            width: 1000px;
             margin: 30px auto;
             padding-left: 15px;
         }
@@ -176,6 +178,7 @@
     <script>
         function myFunction() {
             alert("Input was successful!");
+            window.location.reload(true);
         }
     </script>
 
@@ -212,7 +215,16 @@
             </div>
 
             <div>
-                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+                <span style="color:Black;"><b>Category:</b></span>
+                <select name="category" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                    <option value="Dinning">Dinning</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Health">Health</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
             </div>
 
             <div>
@@ -221,10 +233,15 @@
             <div>
                 <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" step="0.01" placeholder="What was the value?" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
+
+            <div>
+                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+            </div>
+
             <br>
             <br>
             <div>
-                <button onclick="myFunction()" type="submit" id="button" style="background-color: #3cb371; margin-left: 110%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Add a new entry</span></button>
+                <button onclick="myFunction()" type="submit" id="button" style="background-color: #3cb371; margin-left: 80%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Add a new entry</span></button>
             </div>
 
         </form>

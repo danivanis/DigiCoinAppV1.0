@@ -18,7 +18,7 @@ public class RecordDaoImpl implements RecordDao {
             connection = DatabaseConnectionManager.getConnection();
             statement = connection.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS record (id serial primary key," +
-                    "source varchar(15), entry_date DATE NOT NULL DEFAULT CURRENT_DATE, entry_description varchar(55), entry_amount DOUBLE PRECISION)");
+                    "source varchar(15), category varchar(15), entry_date DATE NOT NULL DEFAULT CURRENT_DATE, entry_amount DOUBLE PRECISION, entry_description varchar(55))");
         } catch (Exception e){
             e.printStackTrace();
         } finally {
@@ -46,13 +46,14 @@ public class RecordDaoImpl implements RecordDao {
 
         try{
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("INSERT INTO record (source, entry_date, entry_description, entry_amount) VALUES (?, ?, ?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO record (source, category, entry_date, entry_amount, entry_description) VALUES (?, ?, ?, ?, ?)");
             preparedStatement.setString(1, record.getSource());
-            preparedStatement.setDate(2, new java.sql.Date(record.getEntryDate().getTime()) );
-            preparedStatement.setString(3, record.getDescription());
+            preparedStatement.setString(2, record.getCategory());
+            preparedStatement.setDate(3, new java.sql.Date(record.getEntryDate().getTime()) );
             preparedStatement.setDouble(4, record.getAmount());
+            preparedStatement.setString(5, record.getDescription());
             preparedStatement.executeUpdate();
-            System.out.println("INSERT INTO record (source, entry_date, entry_description, entry_amount) VALUES (?, ?, ?, ?)");
+            System.out.println("INSERT INTO record (source, category, entry_date, entry_amount, entry_description) VALUES (?, ?, ?, ?, ?)");
         }catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -89,9 +90,61 @@ public class RecordDaoImpl implements RecordDao {
             while(resultSet.next()){
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
+                record.setCategory(resultSet.getString("category"));
                 record.setEntryDate(resultSet.getDate("entry_date"));
-                record.setDescription(resultSet.getString("entry_description"));
                 record.setAmount(resultSet.getDouble("entry_amount"));
+                record.setDescription(resultSet.getString("entry_description"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (resultSet != null){
+                try {
+                    resultSet.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if (preparedStatement != null){
+                try {
+                    preparedStatement.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return record;
+    }
+
+    @Override
+    public Record selectByCategory(String category) {
+        Record record = new Record();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try{
+            connection = DatabaseConnectionManager.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE category = ?");
+            preparedStatement.setString(1, category);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                record.setId(resultSet.getInt("id"));
+                record.setSource(resultSet.getString("source"));
+                record.setCategory(resultSet.getString("category"));
+                record.setEntryDate(resultSet.getDate("entry_date"));
+                record.setAmount(resultSet.getDouble("entry_amount"));
+                record.setDescription(resultSet.getString("entry_description"));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -139,9 +192,10 @@ public class RecordDaoImpl implements RecordDao {
             while(resultSet.next()){
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
+                record.setCategory(resultSet.getString("category"));
                 record.setEntryDate(resultSet.getDate("entry_date"));
-                record.setDescription(resultSet.getString("entry_description"));
                 record.setAmount(resultSet.getDouble("entry_amount"));
+                record.setDescription(resultSet.getString("entry_description"));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -189,6 +243,7 @@ public class RecordDaoImpl implements RecordDao {
                 Record record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
+                record.setCategory(resultSet.getString("category"));
                 record.setEntryDate(resultSet.getDate("entry_date"));
                 record.setDescription(resultSet.getString("entry_description"));
                 record.setAmount(resultSet.getDouble("entry_amount"));
@@ -264,14 +319,15 @@ public class RecordDaoImpl implements RecordDao {
 
         try{
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("UPDATE record SET source = ?, entry_date = ?, entry_description = ?, entry_amount = ? WHERE id = ?");
+            preparedStatement = connection.prepareStatement("UPDATE record SET source = ?, category = ?, entry_date = ?, entry_amount = ?, entry_description = ? WHERE id = ?");
             preparedStatement.setString(1, record.getSource());
-            preparedStatement.setDate(2, new java.sql.Date(record.getEntryDate().getTime()) );
-            preparedStatement.setString(3, record.getDescription());
+            preparedStatement.setString(2, record.getCategory());
+            preparedStatement.setDate(3, new java.sql.Date(record.getEntryDate().getTime()) );
             preparedStatement.setDouble(4, record.getAmount());
-            preparedStatement.setInt(5, id);
+            preparedStatement.setString(5, record.getDescription());
+            preparedStatement.setInt(6, id);
             preparedStatement.executeUpdate();
-            System.out.println("UPDATE record SET source = ?, entry_date = ?, entry_description = ?, entry_amount = ?, id = ?");
+            System.out.println("UPDATE record SET source = ?, category = ?, entry_date = ?, entry_amount = ?, entry_description = ?, id = ?");
         }catch (Exception e){
             e.printStackTrace();
         }finally {

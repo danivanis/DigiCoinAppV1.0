@@ -26,6 +26,7 @@ public class InputServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e inputpage doPost");
         String source = request.getParameter("source");
+        String category = request.getParameter("category");
         java.util.Date entryDate = null;
         try {
             entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
@@ -42,6 +43,7 @@ public class InputServlet extends HttpServlet {
 
         Record record = new Record();
         record.setSource(source);
+        record.setCategory(category);
         record.setEntryDate(date);
         record.setDescription(details);
         record.setAmount(amount);
@@ -52,7 +54,9 @@ public class InputServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("InputPage.jsp");
+//        response.sendRedirect("InputPage.jsp");
+
+        request.getRequestDispatcher("/InputPage.jsp").forward(request, response);
 
     }
 

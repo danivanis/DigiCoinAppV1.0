@@ -31,6 +31,7 @@ public class UpdateServlet extends HttpServlet {
 
         Integer entryID = Integer.valueOf(request.getParameter("entryid"));
         String source = request.getParameter("source");
+        String category = request.getParameter("category");
         Date entryDate = null;
         try {
             entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
@@ -48,6 +49,7 @@ public class UpdateServlet extends HttpServlet {
         Record record = new Record();
         record.setId(entryID);
         record.setSource(source);
+        record.setCategory(category);
         record.setEntryDate(date);
         record.setDescription(details);
         record.setAmount(amount);

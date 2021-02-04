@@ -66,8 +66,9 @@
             color: #F5F7FA;
             padding: 20px;
             text-align: center;
-            line-height: 24px;
-            width: 200px;
+            line-height: 20px;
+            display: inline-block;
+            width: 400px;
             background-color: #4FC1E9;
             border-radius: 3px;
             cursor: pointer;
@@ -78,12 +79,13 @@
         #button:active {
             position: relative;
             box-shadow: 0 0px #4A89DC;
+            display: inline-block;
             top: 3px;
             box-shadow: 0 0;
         }
 
         #form-box {
-            width: 650px;
+            width: 1000px;
             margin: 30px auto;
             padding-left: 15px;
         }
@@ -201,18 +203,31 @@
         <form method="post">
             <meta charset="ISO-8859-1">
 
-            <div style="margin-left: 25%";>
+            <div style="margin-left: 32.4%";>
                 <span style="color:Black;"><b>Entry ID:</b></span> <input type="number" name="entryid" placeholder="Entry ID" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
             <br>
             <div>
                 <span style="color:Black;"><b>Source:</b></span>
                 <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                    <option value="debitcard">Debit Card</option>
-                    <option value="creditcard">Credit Card</option>
-                    <option value="cash">Cash</option>
-                    <option value="mealvouchers">Meal vouchers</option>
-                    <option value="other">Other</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Meal Vouchers">Meal Vouchers</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <span style="color:Black;"><b>Category:</b></span>
+                <select name="category" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                    <option value="Dinning">Dinning</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Health">Health</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
                 </select>
             </div>
 
@@ -229,7 +244,7 @@
             <br>
             <br>
             <div>
-                <button type="submit" onclick="myFunction()"  id="button" style="background-color: GoldenRod; margin-left: 110%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Update entry</span></button>
+                <button type="submit" onclick="myFunction()"  id="button" style="background-color: GoldenRod; margin-left: 80%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Update entry</span></button>
             </div>
 
         </form>

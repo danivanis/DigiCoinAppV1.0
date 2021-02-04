@@ -39,7 +39,7 @@
 
         table {
             text-align: left;
-            width: 700px;
+            width: 800px;
             margin: 10px auto;
             border-radius: 3px;
             background-color: #fff;
@@ -68,7 +68,7 @@
             text-align: center;
             line-height: 16px;
             display: inline-block;
-            width: 700px;
+            width: 800px;
             background-color: #df489d;
             border-radius: 3px;
             cursor: pointer;
@@ -85,7 +85,7 @@
         }
 
         #form-box {
-            width: 700px;
+            width: 800px;
             margin: 20px auto;
             padding-left: 0px;
         }
@@ -211,19 +211,21 @@
 
             <table>
                 <tr>
-                    <th id="number" style="width:10px" class="center" bgcolor="SlateGrey">ID</th>
-                    <th id="type" class="center" bgcolor="SlateGrey">Source</th>
-                    <th id="date" style="text-align: center" bgcolor="SlateGrey">Date</th>
-                    <th style="text-align: right" id="amount" bgcolor="SlateGrey">Amount</th>
-                    <th bgcolor="SlateGrey">Details</th>
+                    <th id="number" style="width:5%" class="center" bgcolor="SlateGrey">ID</th>
+                    <th id="type" style="width:18%" class="center" bgcolor="SlateGrey">Source</th>
+                    <th style="text-align: center; width:20%" bgcolor="SlateGrey">Category</th>
+                    <th id="date" style="text-align: center; width:15%" bgcolor="SlateGrey">Date</th>
+                    <th style="text-align: right; width:12%" id="amount" bgcolor="SlateGrey">Amount</th>
+                    <th style="width:30%" bgcolor="SlateGrey">Details</th>
                 </tr>
                 <c:forEach items = "${list}" var = "records">
-                    <tr>
-                        <td style="text-align: center">${records.id}</td>
-                        <td style="text-align: center">${records.source}</td>
-                        <td style="text-align: center">${records.entryDate}</td>
-                        <td style="text-align: right" >${records.amount}</td>
-                        <td>${records.description}</td>
+                    <tr style="line-height: 13px;">
+                        <td style="text-align: center;line-height: 13px;">${records.id}</td>
+                        <td style="text-align: center;line-height: 13px;">${records.source}</td>
+                        <td style="text-align: center;line-height: 13px;">${records.category}</td>
+                        <td style="text-align: center;line-height: 13px;">${records.entryDate}</td>
+                        <td style="text-align: right;line-height: 13px;" >${records.amount}</td>
+                        <td style="line-height: 13px;">${records.description}</td>
                     </tr>
                 </c:forEach>
 
