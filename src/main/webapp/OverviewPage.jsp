@@ -178,7 +178,8 @@
     <script>
         function myFunction() {
             // alert("Update was successful!");
-            window.open("http://localhost:8080/PieChart", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720")
+            window.open('${pageContext.request.contextPath}/PieChart', "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
+            window.location.reload();
         }
 
     </script>

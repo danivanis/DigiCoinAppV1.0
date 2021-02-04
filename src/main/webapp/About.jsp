@@ -24,12 +24,12 @@
         /* Style the side navigation */
         .sidenav {
             height: 100%;
-            width: 200px;
+            width: 150px;
             position: fixed;
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #111;
+            background-color: SlateGrey;
             overflow-x: hidden;
         }
 
@@ -50,7 +50,7 @@
 
         /* Style the content */
         .content {
-            margin-left: 200px;
+            margin-left: 130px;
             padding-left: 20px;
         }
 
@@ -140,7 +140,7 @@
                 <div class="container">
                     <h2>Dănuț IVANIȘ</h2>
                     <p class="title">CEO & Founder</p>
-                    <p>Experienced accountant equipped with new IT ninja skills.</p>
+                    <p>Experienced accountant equipped with new IT ninja skills.                    </p>
                     <p>dan@digicoin.com</p>
                     <p>
                         <button class="button"><a href="mailto:dan@digicoin.com" style="color:black;">Contact</a></button>
@@ -170,7 +170,7 @@
                 <div class="container">
                     <h2>Open pisition</h2>
                     <p class="title">Marketing Director</p>
-                    <p>Experienced social media veteran that posts as he breaths.</p>
+                    <p>Experienced social media veteran that posts as he breaths.                             </p>
                     <p>contact@digicoin.com</p>
                     <p>
                         <button class="button"><a href="mailto:contact@digicoin.com" style="color:black;">Contact</a></button>
