@@ -187,8 +187,8 @@
     <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
     <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
     <a href="#">&#128270; Find entries</a>
-    <p><a href="${pageContext.request.contextPath}/OverviewPage">&#128195; List entries</a></p>
-    <a href="#">&#128465; Delete entries</a>
+    <p><a href='${pageContext.request.contextPath}/OverviewPage'>&#128195; List entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/DeletePage'>&#128465; Delete entries</a></p>
     <br>
     <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
 </div>
@@ -224,7 +224,7 @@
             <br>
             <br>
             <div>
-                <button onclick="myFunction()" type="submit" id="button" style="background-color: GoldenRod; margin-left: 110%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Add a new entry</span></button>
+                <button onclick="myFunction()" type="submit" id="button" style="background-color: #3cb371; margin-left: 110%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Add a new entry</span></button>
             </div>
 
         </form>

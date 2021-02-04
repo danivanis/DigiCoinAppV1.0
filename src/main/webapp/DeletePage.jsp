@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin Edit entries</title>
+    <title>DigiCoin Delete entries</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -175,7 +175,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         function myFunction() {
-            alert("Update was successful!");
+            alert("Removal was successful!");
         }
 
     </script>
@@ -206,31 +206,10 @@
                 <span style="color:Black;"><b>Entry ID:</b></span> <input type="number" name="entryid" placeholder="Entry ID" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
             <br>
-            <div>
-                <span style="color:Black;"><b>Source:</b></span>
-                <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                    <option value="debitcard">Debit Card</option>
-                    <option value="creditcard">Credit Card</option>
-                    <option value="cash">Cash</option>
-                    <option value="mealvouchers">Meal vouchers</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <div>
-                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
-
-            <div>
-                <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
-            <div>
-                <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" step="0.01" placeholder="What was the value?" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
-            </div>
             <br>
             <br>
             <div>
-                <button type="submit" onclick="myFunction()"  id="button" style="background-color: GoldenRod; margin-left: 110%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Update entry</span></button>
+                <button type="submit" onclick="myFunction()"  id="button" style="background-color: #ff4040; margin-left: 110%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Delete entry</span></button>
             </div>
 
         </form>
