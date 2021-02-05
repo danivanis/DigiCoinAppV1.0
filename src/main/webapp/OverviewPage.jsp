@@ -47,7 +47,7 @@
         table th {
             padding: 10px;
         }
-        table tr:nth-child(odd) {
+        table tr {
             background-color: #F5F7FA;
         }
         table td {
@@ -228,7 +228,11 @@
                         <td style="line-height: 13px;">${records.description}</td>
                     </tr>
                 </c:forEach>
-
+                <tr>
+                    <td bgcolor="SlateGrey" colspan="4"  style="text-align: center;line-height: 13px; color: #F5F7FA;"><b>TOTAL</b></td>
+                    <td id="TOTAL" style="text-align: right;line-height: 13px; color: #F5F7FA;" bgcolor="SlateGrey"><b>${sum}</b></td>
+                    <td bgcolor="SlateGrey"></td>
+                </tr>
             </table>
 
         </form>

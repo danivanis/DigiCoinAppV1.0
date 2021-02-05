@@ -19,6 +19,8 @@ public interface RecordDao {
 
     List<Record> selectAll();
 
+    double sumAll();
+
     void delete(int id);
 
     void update(Record record, int id);

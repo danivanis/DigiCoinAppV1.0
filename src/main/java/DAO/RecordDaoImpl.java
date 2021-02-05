@@ -19,17 +19,17 @@ public class RecordDaoImpl implements RecordDao {
             statement = connection.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS record (id serial primary key," +
                     "source varchar(15), category varchar(15), entry_date DATE NOT NULL DEFAULT CURRENT_DATE, entry_amount DOUBLE PRECISION, entry_description varchar(55))");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (statement != null){
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -44,28 +44,28 @@ public class RecordDaoImpl implements RecordDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO record (source, category, entry_date, entry_amount, entry_description) VALUES (?, ?, ?, ?, ?)");
             preparedStatement.setString(1, record.getSource());
             preparedStatement.setString(2, record.getCategory());
-            preparedStatement.setDate(3, new java.sql.Date(record.getEntryDate().getTime()) );
+            preparedStatement.setDate(3, new java.sql.Date(record.getEntryDate().getTime()));
             preparedStatement.setDouble(4, record.getAmount());
             preparedStatement.setString(5, record.getDescription());
             preparedStatement.executeUpdate();
             System.out.println("INSERT INTO record (source, category, entry_date, entry_amount, entry_description) VALUES (?, ?, ?, ?, ?)");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (preparedStatement != null){
+        } finally {
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -82,12 +82,12 @@ public class RecordDaoImpl implements RecordDao {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE id = ?");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
@@ -95,26 +95,26 @@ public class RecordDaoImpl implements RecordDao {
                 record.setAmount(resultSet.getDouble("entry_amount"));
                 record.setDescription(resultSet.getString("entry_description"));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (resultSet != null){
+        } finally {
+            if (resultSet != null) {
                 try {
                     resultSet.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (preparedStatement != null){
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -133,12 +133,12 @@ public class RecordDaoImpl implements RecordDao {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE category = ?");
             preparedStatement.setString(1, category);
             resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
@@ -146,26 +146,26 @@ public class RecordDaoImpl implements RecordDao {
                 record.setAmount(resultSet.getDouble("entry_amount"));
                 record.setDescription(resultSet.getString("entry_description"));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (resultSet != null){
+        } finally {
+            if (resultSet != null) {
                 try {
                     resultSet.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (preparedStatement != null){
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -184,12 +184,12 @@ public class RecordDaoImpl implements RecordDao {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date = ?");
             preparedStatement.setDate(1, Date.valueOf("entryDate"));
             resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
@@ -197,26 +197,26 @@ public class RecordDaoImpl implements RecordDao {
                 record.setAmount(resultSet.getDouble("entry_amount"));
                 record.setDescription(resultSet.getString("entry_description"));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (resultSet != null){
+        } finally {
+            if (resultSet != null) {
                 try {
                     resultSet.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (preparedStatement != null){
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -235,11 +235,11 @@ public class RecordDaoImpl implements RecordDao {
         Statement statement = null;
         ResultSet resultSet = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM record ORDER BY id ASC");
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 Record record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
@@ -249,26 +249,26 @@ public class RecordDaoImpl implements RecordDao {
                 record.setAmount(resultSet.getDouble("entry_amount"));
                 records.add(record);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (resultSet != null){
+        } finally {
+            if (resultSet != null) {
                 try {
                     resultSet.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (statement != null){
+            if (statement != null) {
                 try {
                     statement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -285,24 +285,24 @@ public class RecordDaoImpl implements RecordDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             preparedStatement = connection.prepareStatement("DELETE FROM record WHERE id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
             System.out.println("DELETE FROM record WHERE id = ?");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (preparedStatement != null){
+        } finally {
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -317,29 +317,29 @@ public class RecordDaoImpl implements RecordDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        try{
+        try {
             connection = DatabaseConnectionManager.getConnection();
             preparedStatement = connection.prepareStatement("UPDATE record SET source = ?, category = ?, entry_date = ?, entry_amount = ?, entry_description = ? WHERE id = ?");
             preparedStatement.setString(1, record.getSource());
             preparedStatement.setString(2, record.getCategory());
-            preparedStatement.setDate(3, new java.sql.Date(record.getEntryDate().getTime()) );
+            preparedStatement.setDate(3, new java.sql.Date(record.getEntryDate().getTime()));
             preparedStatement.setDouble(4, record.getAmount());
             preparedStatement.setString(5, record.getDescription());
             preparedStatement.setInt(6, id);
             preparedStatement.executeUpdate();
             System.out.println("UPDATE record SET source = ?, category = ?, entry_date = ?, entry_amount = ?, entry_description = ?, id = ?");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (preparedStatement != null){
+        } finally {
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
 
-            if (connection != null){
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -347,6 +347,54 @@ public class RecordDaoImpl implements RecordDao {
                 }
             }
         }
+    }
+
+    @Override
+    public double sumAll() {
+        double sum = 0.00;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DatabaseConnectionManager.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT SUM(entry_amount) FROM record");
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            String value = resultSet.getString(1);
+            System.out.println(value);
+            double sumVar = Double.parseDouble(value);
+            sum = Math.round(sumVar * 100.00) / 100.00;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return sum;
     }
 
 }

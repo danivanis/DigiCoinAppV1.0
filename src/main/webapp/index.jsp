@@ -92,7 +92,7 @@
     <h2 style="color:DimGrey;">Welcome to DigiCoin, your personal expense tracker!
         <br>
         <br>
-        On the left side of the screen you'll have the buttons to navigate through the site.
+        On the left side of the screen you'll have the buttons to navigate through the app.
     </h2>
 </div>
 
