@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin Category list</title>
+    <title>DigiCoin Pie Chart</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -39,15 +39,15 @@
 
         table {
             text-align: left;
-            width: 800px;
-            margin: 10px auto;
+            width: 640px;
+            margin: 30px auto;
             border-radius: 3px;
             background-color: #fff;
         }
         table th {
             padding: 10px;
         }
-        table tr {
+        table tr:nth-child(odd) {
             background-color: #F5F7FA;
         }
         table td {
@@ -60,58 +60,32 @@
             text-align: right;
         }
 
-        #button1 {
+        #button {
             position: relative;
             top: 0;
             color: #F5F7FA;
-            font-size:15px;
+            padding: 20px;
             text-align: center;
-            line-height: 16px;
-            display: inline-block;
-            width: 800px;
-            background-color: #df489d;
+            line-height: 24px;
+            width: 200px;
+            background-color: #4FC1E9;
             border-radius: 3px;
             cursor: pointer;
             margin: auto;
             box-shadow: 0 3px #DAA520;
             transition: 0.1s ease;
         }
-        #button1:active {
+        #button:active {
             position: relative;
             box-shadow: 0 0px #4A89DC;
-            display: inline-block;
-            top: 3px;
-            box-shadow: 0 0;
-        }
-
-        #button2 {
-            position: relative;
-            top: 0;
-            color: #F5F7FA;
-            font-size:15px;
-            text-align: center;
-            line-height: 16px;
-            display: inline-block;
-            width: 800px;
-            background-color: #df489d;
-            border-radius: 3px;
-            cursor: pointer;
-            margin: auto;
-            box-shadow: 0 3px #DAA520;
-            transition: 0.1s ease;
-        }
-        #button2:active {
-            position: relative;
-            box-shadow: 0 0px #4A89DC;
-            display: inline-block;
             top: 3px;
             box-shadow: 0 0;
         }
 
         #form-box {
-            width: 800px;
-            margin: 20px auto;
-            padding-left: 0px;
+            width: 650px;
+            margin: 30px auto;
+            padding-left: 15px;
         }
 
         form {
@@ -195,23 +169,13 @@
             margin-left: 200px;
             padding-left: 20px;
         }
-    </style>
 
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        function myCategory() {
-            // alert("Update was successful!");
-            window.open('${pageContext.request.contextPath}/PieChart', "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
-            window.location.reload();
-        }
-    </script>
-
-    <script>
-        function myDate() {
-            // alert("Update was successful!");
-            window.open('${pageContext.request.contextPath}/PieChartDate', "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
-            window.location.reload();
+        function myFunction() {
+            alert("Input was successful!");
         }
     </script>
 
@@ -232,52 +196,14 @@
 <div class="content">
     <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
-    <div id="form-box">
-        <form method="post">
-            <meta charset="ISO-8859-1">
+    <br>
+    <br>
 
-            <div>
-                <button onclick="myCategory()" type="submit" id="button1" style="background-color: #df4885; margin-left: 0%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show category cost split in Pie Chart!</b></button>
-            </div>
-
-            <div>
-                <button onclick="myDate()" type="submit" id="button2" style="background-color: #df4885; margin-left: 0%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show calendar date cost split in Pie Chart!</b></button>
-            </div>
-
-            <table>
-                <tr>
-                    <th id="number" style="width:5%" class="center" bgcolor="SlateGrey">ID</th>
-                    <th id="type" style="width:18%" class="center" bgcolor="SlateGrey">Source</th>
-                    <th style="text-align: center; width:20%" bgcolor="SlateGrey">Category</th>
-                    <th id="date" style="text-align: center; width:15%" bgcolor="SlateGrey">Date</th>
-                    <th style="text-align: right; width:12%" id="amount" bgcolor="SlateGrey">Amount</th>
-                    <th style="width:30%" bgcolor="SlateGrey">Details</th>
-                </tr>
-                <c:forEach items = "${list}" var = "records">
-                    <tr style="line-height: 13px;">
-                        <td style="text-align: center;line-height: 13px;">${records.id}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.source}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.category}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.entryDate}</td>
-                        <td style="text-align: right;line-height: 13px;" >${records.amount}</td>
-                        <td style="line-height: 13px;">${records.description}</td>
-                    </tr>
-                </c:forEach>
-                <tr>
-                    <td bgcolor="SlateGrey" colspan="4"  style="text-align: center;line-height: 13px; color: #F5F7FA;"><b>TOTAL</b></td>
-                    <td id="TOTAL" style="text-align: right;line-height: 13px; color: #F5F7FA;" bgcolor="SlateGrey"><b>${sum}</b></td>
-                    <td bgcolor="SlateGrey"></td>
-                </tr>
-            </table>
-
-        </form>
-
-    </div>
+    <form id="form-box">
+        <img src='C:/Users/Dan/IdeaProjects/DigiCoinAppV1.0/PieChart.jpeg' width="600" height="400" border="0">
+    </form>
 
 </div>
-
-
-
 
 </body>
 

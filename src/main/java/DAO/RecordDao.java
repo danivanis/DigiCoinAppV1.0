@@ -11,13 +11,17 @@ public interface RecordDao {
 
     void insert(Record record);
 
-    Record selectById(int id);
+    Record selectByText(String text);
 
     Record selectByDate(Date date);
 
     Record selectByCategory(String category);
 
     List<Record> selectAll();
+
+    List<Record> sumByCategory();
+
+    double sumByCategory (String category);
 
     double sumAll();
 

@@ -31,6 +31,8 @@ public class OverviewServlet extends HttpServlet {
 
         request.setAttribute("list", records);
 
+        request.setAttribute("sum",recordDaoImpl.sumAll());
+
         request.getRequestDispatcher("/OverviewPage.jsp").forward(request, response);
 
     }

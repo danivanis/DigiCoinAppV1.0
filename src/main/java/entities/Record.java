@@ -24,9 +24,9 @@ public class Record {
         this.category = category;
     }
 
-    public Record(Integer id, String category) {
-        this.id = id;
+    public Record(String category, double amount) {
         this.category = category;
+        this.amount = amount;
     }
 
     public Integer getId() {

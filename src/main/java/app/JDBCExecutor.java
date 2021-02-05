@@ -3,6 +3,7 @@ package app;
 import DAO.RecordDaoImpl;
 import entities.Record;
 import jdbc.DatabaseConnectionManager;
+import org.jfree.data.general.DefaultPieDataset;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -17,7 +18,8 @@ public class JDBCExecutor {
     public static void main(String[] args) {
 
         RecordDaoImpl pdi = new RecordDaoImpl();
-        pdi.createRecordsTable();
+//        pdi.createRecordsTable();
+
 
 //        String inputDate = "2020-10-11";
 //        Date date = null;
