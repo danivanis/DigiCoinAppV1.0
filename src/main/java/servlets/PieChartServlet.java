@@ -24,13 +24,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.NumberFormat;
 
-@WebServlet(urlPatterns = {"/PieChart"})
+@WebServlet(urlPatterns = {"/PieChartCategory"})
 public class PieChartServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e pieChart doPost");
 
-        response.sendRedirect("PieChart.jsp");
+        response.sendRedirect("PieChartCategory.jsp");
 
     }
 
@@ -100,7 +100,7 @@ public class PieChartServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher("/PieChart.jsp").forward(request, response);
+        request.getRequestDispatcher("/PieChartCategory.jsp").forward(request, response);
     }
 
 }

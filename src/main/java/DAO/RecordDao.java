@@ -11,11 +11,11 @@ public interface RecordDao {
 
     void insert(Record record);
 
-    Record selectByText(String text);
+    List<Record> selectByText(String text);
 
-    Record selectByDate(Date date);
+    List<Record> selectByDate(Date date);
 
-    Record selectByCategory(String category);
+    List<Record> selectByCategory(String category);
 
     List<Record> selectAll();
 

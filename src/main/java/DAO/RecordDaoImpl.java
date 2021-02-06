@@ -76,7 +76,8 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
-    public Record selectByText(String text) {
+    public List<Record> selectByText(String text) {
+        List<Record> records = new ArrayList<Record>();
         Record record = new Record();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -123,11 +124,12 @@ public class RecordDaoImpl implements RecordDao {
             }
         }
 
-        return record;
+        return records;
     }
 
     @Override
-    public Record selectByCategory(String category) {
+    public List<Record> selectByCategory(String category) {
+        List<Record> records = new ArrayList<Record>();
         Record record = new Record();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -174,11 +176,12 @@ public class RecordDaoImpl implements RecordDao {
             }
         }
 
-        return record;
+        return records;
     }
 
     @Override
-    public Record selectByDate(java.util.Date date) {
+    public List<Record> selectByDate(java.util.Date date) {
+        List<Record> records = new ArrayList<Record>();
         Record record = new Record();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -225,7 +228,7 @@ public class RecordDaoImpl implements RecordDao {
             }
         }
 
-        return record;
+        return records;
     }
 
     @Override

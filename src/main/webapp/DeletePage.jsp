@@ -187,7 +187,7 @@
     <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>
     <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
     <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
-    <a href="#">&#128270; Find entries</a>
+    <p><a href='${pageContext.request.contextPath}/ReportsPage'>&#128270; Find entries</a></p>
     <p><a href='${pageContext.request.contextPath}/OverviewPage'>&#128195; List entries</a></p>
     <p><a href='${pageContext.request.contextPath}/DeletePage'>&#128465; Delete entries</a></p>
     <br>
