@@ -11,7 +11,7 @@ public interface RecordDao {
 
     void insert(Record record);
 
-    List<Record> selectByText(String text);
+    List<Record> selectByText(String details);
 
     List<Record> selectByDate(Date date);
 

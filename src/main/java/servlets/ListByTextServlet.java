@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -18,15 +16,10 @@ import java.util.List;
 
 public class ListByTextServlet extends HttpServlet {
 
+    RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e ListByTextPage doPost");
-
-        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
-        String details = request.getParameter("details");
-        System.out.println(details);
-
-        List<Record> records = recordDaoImpl.selectByText(details);
-        request.setAttribute("list", records);
 
         response.sendRedirect("ListByText.jsp");
     }
@@ -34,10 +27,7 @@ public class ListByTextServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e ListByTextPage doGet");
 
-        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
         String details = request.getParameter("details");
-        System.out.println(details);
-
         List<Record> records = recordDaoImpl.selectByText(details);
         request.setAttribute("list", records);
 

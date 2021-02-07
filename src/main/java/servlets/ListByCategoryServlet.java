@@ -16,15 +16,10 @@ import java.util.List;
 
 public class ListByCategoryServlet extends HttpServlet {
 
+    RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e ListByCategoryPage doPost");
-
-        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
-        String category = request.getParameter("category");
-        System.out.println(category);
-
-        List<Record> records = recordDaoImpl.selectByText(category);
-        request.setAttribute("list", records);
 
         response.sendRedirect("ListByCategory.jsp");
     }
@@ -32,14 +27,12 @@ public class ListByCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e ListByCategoryPage doGet");
 
-        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
         String category = request.getParameter("category");
-        System.out.println(category);
-
         List<Record> records = recordDaoImpl.selectByText(category);
         request.setAttribute("list", records);
 
         request.getRequestDispatcher("/ListByCategory.jsp").forward(request, response);
 
     }
+
 }

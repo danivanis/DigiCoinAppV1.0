@@ -76,17 +76,17 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
-    public List<Record> selectByText(String text) {
+    public List<Record> selectByText(String details) {
         List<Record> records = new ArrayList<Record>();
-        Record record = new Record();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        Record record = new Record();
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_description ILIKE ?");
-            preparedStatement.setString(1, "%" + "entry_description" + "%");
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE UPPER(entry_description) LIKE ?");
+            preparedStatement.setString(1, "%" + details.toUpperCase() + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 record.setId(resultSet.getInt("id"));
@@ -130,23 +130,24 @@ public class RecordDaoImpl implements RecordDao {
     @Override
     public List<Record> selectByCategory(String category) {
         List<Record> records = new ArrayList<Record>();
-        Record record = new Record();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        Record record = new Record();
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE category = ?");
-            preparedStatement.setString(1, category);
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE category LIKE ?");
+            preparedStatement.setString(1, "%" + category + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
                 record.setEntryDate(resultSet.getDate("entry_date"));
-                record.setAmount(resultSet.getDouble("entry_amount"));
                 record.setDescription(resultSet.getString("entry_description"));
+                record.setAmount(resultSet.getDouble("entry_amount"));
+                records.add(record);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -177,20 +178,21 @@ public class RecordDaoImpl implements RecordDao {
         }
 
         return records;
+
     }
 
     @Override
-    public List<Record> selectByDate(java.util.Date date) {
+    public List<Record> selectByDate(java.util.Date entryDate) {
         List<Record> records = new ArrayList<Record>();
-        Record record = new Record();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        Record record = new Record();
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date = ?");
-            preparedStatement.setDate(1, Date.valueOf("entryDate"));
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date LIKE ?");
+            preparedStatement.setDate(1, new java.sql.Date(record.getEntryDate().getTime()));
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 record.setId(resultSet.getInt("id"));

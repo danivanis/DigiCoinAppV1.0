@@ -249,7 +249,7 @@
     <script>
         function myDate() {
             // alert("Input was successful!");
-            window.open('${pageContext.request.contextPath}/ListByDate', "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
+            window.open("<%--${pageContext.request.contextPath}/--%>ListByDate.jsp", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
             window.location.reload();
         }
     </script>
@@ -257,7 +257,7 @@
     <script>
         function myText() {
             // alert("Input was successful!");
-            window.open('${pageContext.request.contextPath}/ListByText', "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
+            window.open("<%--${pageContext.request.contextPath}/--%>ListByText.jsp", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
             window.location.reload();
         }
     </script>
@@ -265,7 +265,7 @@
     <script>
         function myCategory() {
             // alert("Input was successful!");
-            window.open('${pageContext.request.contextPath}/ListByCategory', "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
+            window.open("<%--${pageContext.request.contextPath}/--%>ListByCategory.jsp", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
             window.location.reload();
         }
     </script>
@@ -289,11 +289,11 @@
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
     <br>
     <div id="form-box">
-        <form method="post">
-            <meta charset="ISO-8859-1">
+        <meta charset="ISO-8859-1">
 
-            <div class="row">
-                <div class="column">
+        <div class="row">
+            <div class="column">
+                <form method="post" action="ListByDate.jsp">
                     <div class="container">
                         <span style="color:Black;margin-left: 35%;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                     </div>
@@ -301,9 +301,11 @@
                     <div>
                         <button onclick="myDate()" type="submit" id="button1" style="background-color: #367588; margin-left: 27%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Search by date</span></button>
                     </div>
-                </div>
+                </form>
+            </div>
 
-                <div class="column">
+            <div class="column">
+                <form method="post" action="ListByCategory.jsp">
                     <div class="container">
                         <span style="color:Black; margin-left: 25%;"><b>Category:</b></span>
                         <select name="category" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
@@ -320,9 +322,11 @@
                     <div>
                         <button onclick="myCategory()" type="submit" id="button2" style="background-color: #367588; margin-left: 28%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Search by category</span></button>
                     </div>
-                </div>
+                </form>
+            </div>
 
-                <div class="column">
+            <div class="column">
+                <form method="post" action="ListByText.jsp">
                     <div class="container">
                         <span style="color:Black; margin-left: 30%;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                     </div>
@@ -330,10 +334,10 @@
                     <div>
                         <button onclick="myText()" type="submit" id="button3" style="background-color: #367588; margin-left: 29%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Search by text</span></button>
                     </div>
-                </div>
-
+                </form>
             </div>
-        </form>
+
+        </div>
 
     </div>
 

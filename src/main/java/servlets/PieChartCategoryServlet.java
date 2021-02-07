@@ -25,7 +25,7 @@ import java.sql.Statement;
 import java.text.NumberFormat;
 
 @WebServlet(urlPatterns = {"/PieChartCategory"})
-public class PieChartServlet extends HttpServlet {
+public class PieChartCategoryServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e pieChart doPost");
