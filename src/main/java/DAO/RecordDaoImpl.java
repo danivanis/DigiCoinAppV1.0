@@ -237,13 +237,13 @@ public class RecordDaoImpl implements RecordDao {
     public List<Record> selectAll() {
         List<Record> records = new ArrayList<Record>();
         Connection connection = null;
-        Statement statement = null;
+        PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM record ORDER BY id ASC");
+            preparedStatement = connection.prepareStatement("SELECT * FROM record ORDER BY id ASC");
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Record record = new Record();
                 record.setId(resultSet.getInt("id"));
@@ -265,9 +265,9 @@ public class RecordDaoImpl implements RecordDao {
                 }
             }
 
-            if (statement != null) {
+            if (preparedStatement != null) {
                 try {
-                    statement.close();
+                    preparedStatement.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
