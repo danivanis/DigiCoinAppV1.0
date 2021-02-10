@@ -30,7 +30,7 @@ public class UpdateServlet extends HttpServlet {
         String category = request.getParameter("category");
         Date entryDate = null;
         try {
-            entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+            entryDate = new SimpleDateFormat("dd.MM.yyyy").parse(request.getParameter("date"));
             System.out.println(entryDate);
         } catch (ParseException e) {
             e.printStackTrace();

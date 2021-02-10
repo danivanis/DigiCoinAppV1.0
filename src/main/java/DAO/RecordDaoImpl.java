@@ -81,7 +81,7 @@ public class RecordDaoImpl implements RecordDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Record record = new Record();
+
 
         try {
             connection = DatabaseConnectionManager.getConnection();
@@ -89,12 +89,14 @@ public class RecordDaoImpl implements RecordDao {
             preparedStatement.setString(1, "%" + details.toUpperCase() + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                Record record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
                 record.setEntryDate(resultSet.getDate("entry_date"));
                 record.setAmount(resultSet.getDouble("entry_amount"));
                 record.setDescription(resultSet.getString("entry_description"));
+                records.add(record);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -133,7 +135,7 @@ public class RecordDaoImpl implements RecordDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Record record = new Record();
+
 
         try {
             connection = DatabaseConnectionManager.getConnection();
@@ -141,6 +143,7 @@ public class RecordDaoImpl implements RecordDao {
             preparedStatement.setString(1, "%" + category + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                Record record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
@@ -187,20 +190,22 @@ public class RecordDaoImpl implements RecordDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Record record = new Record();
+
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date LIKE ?");
-            preparedStatement.setDate(1, new java.sql.Date(record.getEntryDate().getTime()));
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date = ?");
+            preparedStatement.setDate(1, new java.sql.Date(entryDate.getTime()));
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                Record record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setSource(resultSet.getString("source"));
                 record.setCategory(resultSet.getString("category"));
                 record.setEntryDate(resultSet.getDate("entry_date"));
                 record.setAmount(resultSet.getDouble("entry_amount"));
                 record.setDescription(resultSet.getString("entry_description"));
+                records.add(record);
             }
         } catch (Exception e) {
             e.printStackTrace();

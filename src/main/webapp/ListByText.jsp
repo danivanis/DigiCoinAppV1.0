@@ -1,63 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-<%@ page import="entities.Record" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="jdbc.DatabaseConnectionManager" %>
-<%@ page import="java.sql.*" %>
-
-<%
-    String details = request.getParameter("details");
-    List<Record> records = new ArrayList<Record>();
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-    Record record = new Record();
-
-    try {
-        connection = DatabaseConnectionManager.getConnection();
-        preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE UPPER(entry_description) LIKE ?");
-        preparedStatement.setString(1, "%" + details.toUpperCase() + "%");
-        resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            record.setId(resultSet.getInt("id"));
-            record.setSource(resultSet.getString("source"));
-            record.setCategory(resultSet.getString("category"));
-            record.setEntryDate(resultSet.getDate("entry_date"));
-            record.setAmount(resultSet.getDouble("entry_amount"));
-            record.setDescription(resultSet.getString("entry_description"));
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        if (resultSet != null) {
-            try {
-                resultSet.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (preparedStatement != null) {
-            try {
-                preparedStatement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    request.setAttribute("list", records);
-%>
 
 <!DOCTYPE html>
 <html>
@@ -261,16 +204,16 @@
 
 </head>
 
-<%--<div class="sidenav">--%>
-<%--    <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>--%>
-<%--    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>--%>
-<%--    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>--%>
-<%--    <p><a href='${pageContext.request.contextPath}/ReportsPage'>&#128270; Find entries</a></p>--%>
-<%--    <p><a href='${pageContext.request.contextPath}/OverviewPage'>&#128195; List entries</a></p>--%>
-<%--    <p><a href='${pageContext.request.contextPath}/DeletePage'>&#128465; Delete entries</a></p>--%>
-<%--    <br>--%>
-<%--    <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>--%>
-<%--</div>--%>
+<div class="sidenav">
+    <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/ReportsPage'>&#128270; Find entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/OverviewPage'>&#128195; List entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/DeletePage'>&#128465; Delete entries</a></p>
+    <br>
+    <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
+</div>
 
 <div class="content">
     <br>

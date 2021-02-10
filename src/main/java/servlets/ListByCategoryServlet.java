@@ -19,16 +19,18 @@ public class ListByCategoryServlet extends HttpServlet {
     RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e ListByCategoryPage doPost");
+        /*System.out.println("aici e ListByCategoryPage doPost");
 
-        response.sendRedirect("ListByCategory.jsp");
+        response.sendRedirect("ListByCategory.jsp");*/
+
+        this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e ListByCategoryPage doGet");
 
         String category = request.getParameter("category");
-        List<Record> records = recordDaoImpl.selectByText(category);
+        List<Record> records = recordDaoImpl.selectByCategory(category);
         request.setAttribute("list", records);
 
         request.getRequestDispatcher("/ListByCategory.jsp").forward(request, response);

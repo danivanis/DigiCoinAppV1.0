@@ -172,13 +172,23 @@
             padding-left: 20px;
         }
 
+        <%
+        session.setMaxInactiveInterval(2);
+        %>
+
+
+
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        function myFunction() {
-            alert("Input was successful!");
-            window.location.reload(true);
+
+    <script type="text/javascript">
+        var Msg ='<%=session.getAttribute("getAlert")%>';
+        if (Msg != "null") {
+            function myFunction() {
+                alert("Input was successful!");
+                window.location.reload(true);
+            }
         }
     </script>
 

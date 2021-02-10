@@ -19,9 +19,10 @@ public class ListByTextServlet extends HttpServlet {
     RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e ListByTextPage doPost");
+        /*System.out.println("aici e ListByTextPage doPost");
 
-        response.sendRedirect("ListByText.jsp");
+        response.sendRedirect("ListByText.jsp");*/
+        this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

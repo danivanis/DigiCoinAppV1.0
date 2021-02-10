@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin Category list</title>
+    <title>DigiCoin List entries</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -258,14 +258,14 @@
                         <td style="text-align: center;line-height: 13px;">${records.id}</td>
                         <td style="text-align: center;line-height: 13px;">${records.source}</td>
                         <td style="text-align: center;line-height: 13px;">${records.category}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.entryDate}</td>
+                        <td required pattern = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" style="text-align: center;line-height: 13px;">${records.entryDate}</td>
                         <td style="text-align: right;line-height: 13px;" >${records.amount}</td>
                         <td style="line-height: 13px;">${records.description}</td>
                     </tr>
                 </c:forEach>
                 <tr>
                     <td bgcolor="SlateGrey" colspan="4"  style="text-align: center;line-height: 13px; color: #F5F7FA;"><b>TOTAL</b></td>
-                    <td id="TOTAL" style="text-align: right;line-height: 13px; color: #F5F7FA;" bgcolor="SlateGrey"><b>${sum}</b></td>
+                    <td id="TOTAL" type="number" lang="en-150" step="any" style="text-align: right;line-height: 13px; color: #F5F7FA;" bgcolor="SlateGrey"><b>${sum}</b></td>
                     <td bgcolor="SlateGrey"></td>
                 </tr>
             </table>

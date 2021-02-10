@@ -246,29 +246,6 @@
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        function myDate() {
-            // alert("Input was successful!");
-            window.open("<%--${pageContext.request.contextPath}/--%>ListByDate.jsp", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
-            window.location.reload();
-        }
-    </script>
-
-    <script>
-        function myText() {
-            // alert("Input was successful!");
-            window.open("<%--${pageContext.request.contextPath}/--%>ListByText.jsp", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
-            window.location.reload();
-        }
-    </script>
-
-    <script>
-        function myCategory() {
-            // alert("Input was successful!");
-            window.open("<%--${pageContext.request.contextPath}/--%>ListByCategory.jsp", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=1280,height=720");
-            window.location.reload();
-        }
-    </script>
 
 </head>
 <body>
@@ -293,7 +270,7 @@
 
         <div class="row">
             <div class="column">
-                <form method="post" action="ListByDate.jsp">
+                <form method="post" action="ListByDate">
                     <div class="container">
                         <span style="color:Black;margin-left: 35%;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                     </div>
@@ -305,7 +282,7 @@
             </div>
 
             <div class="column">
-                <form method="post" action="ListByCategory.jsp">
+                <form method="post" action="ListByCategory">
                     <div class="container">
                         <span style="color:Black; margin-left: 25%;"><b>Category:</b></span>
                         <select name="category" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
@@ -326,7 +303,7 @@
             </div>
 
             <div class="column">
-                <form method="post" action="ListByText.jsp">
+                <form method="post" action="ListByText">
                     <div class="container">
                         <span style="color:Black; margin-left: 30%;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
                     </div>

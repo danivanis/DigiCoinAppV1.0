@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet(urlPatterns = {"/InputPage"})
 
@@ -25,9 +26,9 @@ public class InputServlet extends HttpServlet {
         System.out.println("aici e inputpage doPost");
         String source = request.getParameter("source");
         String category = request.getParameter("category");
-        java.util.Date entryDate = null;
+        Date entryDate = null;
         try {
-            entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+            entryDate = new SimpleDateFormat("dd.MM.yyyy").parse(request.getParameter("date"));
             System.out.println(entryDate);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -51,6 +52,8 @@ public class InputServlet extends HttpServlet {
         } catch (Exception e){
             e.printStackTrace();
         }
+
+
 
         request.getRequestDispatcher("/InputPage.jsp").forward(request, response);
 

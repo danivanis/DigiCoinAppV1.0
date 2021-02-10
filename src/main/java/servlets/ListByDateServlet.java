@@ -23,9 +23,11 @@ public class ListByDateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e ListByDatePage doPost");
+        /*System.out.println("aici e ListByDatePage doPost");*/
+/*
+        response.sendRedirect("ListByDate.jsp");*/
 
-        response.sendRedirect("ListByDate.jsp");
+        this.doGet(request, response);
     }
 
     @Override
@@ -34,7 +36,7 @@ public class ListByDateServlet extends HttpServlet {
 
         java.util.Date entryDate = null;
         try {
-            entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+            entryDate = new SimpleDateFormat("dd.MM.yyyy").parse(request.getParameter("date"));
             System.out.println(entryDate);
         } catch (ParseException e) {
             e.printStackTrace();
