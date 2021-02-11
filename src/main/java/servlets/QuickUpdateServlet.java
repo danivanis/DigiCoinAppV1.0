@@ -14,9 +14,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(urlPatterns = {"/UpdatePage"})
+@WebServlet(urlPatterns = {"/QuickUpdatePage"})
 
-public class UpdateServlet extends HttpServlet {
+public class QuickUpdateServlet extends HttpServlet {
     private RecordDaoImpl recordDaoImpl;
 
     public void init(){
@@ -24,7 +24,7 @@ public class UpdateServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e updatepage doPost");
+        System.out.println("aici e QuickUpdatePage doPost");
 
         Integer entryID = Integer.valueOf(request.getParameter("entryid"));
         String source = request.getParameter("source");
@@ -62,9 +62,15 @@ public class UpdateServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e updatepage doGet");
+        System.out.println("aici e QuickUpdatePage doGet");
 
-        request.getRequestDispatcher("/UpdatePage.jsp").forward(request, response);
+        Integer entryID = Integer.valueOf(request.getParameter("entryid"));
+
+        Record existingRecord = recordDaoImpl.selectRecord(entryID);
+
+        request.setAttribute("record", existingRecord);
+
+        request.getRequestDispatcher("/QuickUpdatePage.jsp").forward(request, response);
 
     }
 }

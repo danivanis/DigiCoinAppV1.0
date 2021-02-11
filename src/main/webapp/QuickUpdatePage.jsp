@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin Find entries</title>
+    <title>DigiCoin Edit entries</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -37,28 +37,6 @@
             text-align: center;
         }
 
-        .column {
-            float: left;
-            width: 30%;
-            margin-bottom: 16px;
-            padding: 0 8px;
-        }
-
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            margin: 8px;
-        }
-
-        .container {
-            padding: 0 16px;
-        }
-
-        .container::after, .row::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
         table {
             text-align: left;
             width: 640px;
@@ -82,7 +60,7 @@
             text-align: right;
         }
 
-        #button1 {
+        #button {
             position: relative;
             top: 0;
             color: #F5F7FA;
@@ -90,7 +68,7 @@
             text-align: center;
             line-height: 20px;
             display: inline-block;
-            width: 150px;
+            width: 400px;
             background-color: #4FC1E9;
             border-radius: 3px;
             cursor: pointer;
@@ -98,55 +76,7 @@
             box-shadow: 0 3px #DAA520;
             transition: 0.1s ease;
         }
-        #button1:active {
-            position: relative;
-            box-shadow: 0 0px #4A89DC;
-            display: inline-block;
-            top: 3px;
-            box-shadow: 0 0;
-        }
-
-        #button2 {
-            position: relative;
-            top: 0;
-            color: #F5F7FA;
-            padding: 20px;
-            text-align: center;
-            line-height: 20px;
-            display: inline-block;
-            width: 150px;
-            background-color: #4FC1E9;
-            border-radius: 3px;
-            cursor: pointer;
-            margin: auto;
-            box-shadow: 0 3px #DAA520;
-            transition: 0.1s ease;
-        }
-        #button2:active {
-            position: relative;
-            box-shadow: 0 0px #4A89DC;
-            display: inline-block;
-            top: 3px;
-            box-shadow: 0 0;
-        }
-
-        #button3 {
-            position: relative;
-            top: 0;
-            color: #F5F7FA;
-            padding: 20px;
-            text-align: center;
-            line-height: 20px;
-            display: inline-block;
-            width: 150px;
-            background-color: #4FC1E9;
-            border-radius: 3px;
-            cursor: pointer;
-            margin: auto;
-            box-shadow: 0 3px #DAA520;
-            transition: 0.1s ease;
-        }
-        #button3:active {
+        #button:active {
             position: relative;
             box-shadow: 0 0px #4A89DC;
             display: inline-block;
@@ -155,10 +85,9 @@
         }
 
         #form-box {
-            width: 900px;
-            margin: 20px auto;
+            width: 1000px;
+            margin: 30px auto;
             padding-left: 15px;
-            transform : translate(5%, 10%);
         }
 
         form {
@@ -242,10 +171,17 @@
             margin-left: 200px;
             padding-left: 20px;
         }
-
     </style>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function myFunction() {
+            alert("Update was successful!");
+            window.location.href('${pageContext.request.contextPath}/OverviewPage');
+        }
+
+    </script>
 
 </head>
 <body>
@@ -264,57 +200,73 @@
 <div class="content">
     <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
-    <br>
     <div id="form-box">
-        <meta charset="ISO-8859-1">
+        <form method="post">
+            <meta charset="ISO-8859-1">
 
-        <div class="row">
-            <div class="column">
-                <form method="post" action="ListByDate">
-                    <div class="container">
-                        <span style="color:Black;margin-left: 35%;"><b>Date:</b></span> <input type="date" name="date" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                    </div>
-                    <br>
-                    <div>
-                        <button onclick="myDate()" type="submit" id="button1" style="background-color: #367588; margin-left: 27%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Search by date</span></button>
-                    </div>
-                </form>
+            <div style="margin-left: 32.4%";>
+                <span style="color:Black;"><b>Entry ID:</b></span> <input type="number" name="entryid" value="<c:out value="${record.id}"/>" placeholder="Entry ID" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
             </div>
 
-            <div class="column">
-                <form method="post" action="ListByCategory">
-                    <div class="container">
-                        <span style="color:Black; margin-left: 25%;"><b>Category:</b></span>
-                        <select name="category" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                            <option value="Dinning">Dinning</option>
-                            <option value="Transportation">Transportation</option>
-                            <option value="Housing">Housing</option>
-                            <option value="Utilities">Utilities</option>
-                            <option value="Health">Health</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Miscellaneous">Miscellaneous</option>
-                        </select>
-                    </div>
-                    <br>
-                    <div>
-                        <button onclick="myCategory()" type="submit" id="button2" style="background-color: #367588; margin-left: 28%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Search by category</span></button>
-                    </div>
-                </form>
+<%--            <input type="hidden" name="entryid" value="<c:out value="${record.id}"/>">--%>
+            <br>
+            <div>
+                <span style="color:Black;"><b>Source:</b></span>
+                <select name="source" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                    <c:if test="${record != null}">
+                        <option value="<c:out value="${record.source}"/>">${record.source}</option>
+                        <option value="Debit Card">Debit Card</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Meal Vouchers">Meal Vouchers</option>
+                        <option value="Other">Other</option>
+                    </c:if>
+                </select>
             </div>
 
-            <div class="column">
-                <form method="post" action="ListByText">
-                    <div class="container">
-                        <span style="color:Black; margin-left: 30%;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
-                    </div>
-                    <br>
-                    <div>
-                        <button onclick="myText()" type="submit" id="button3" style="background-color: #367588; margin-left: 29%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Search by text</span></button>
-                    </div>
-                </form>
+            <div>
+                <span style="color:Black;"><b>Category:</b></span>
+                <select name="category" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                    <c:if test="${record != null}">
+                        <option value="<c:out value="${record.category}"/>">${record.category}</option>
+                        <option value="Dinning">Dinning</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Health">Health</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
+                    </c:if>
+                </select>
             </div>
 
-        </div>
+            <div>
+                <c:if test="${record != null}">
+                    <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" value="<c:out value="${record.description}"/>" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+<%--                    <input value="<c:out value="${record.description}"/>"--%>
+                </c:if>
+<%--                <span style="color:Black;"><b>Details:</b></span> <input type="text" name="details" placeholder="Entry description" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>--%>
+            </div>
+
+            <div>
+                <c:if test="${record != null}">
+                    <span style="color:Black;"><b>Date:</b></span> <input type="date" name="date" value="<c:out value="${record.entryDate}"/>" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+<%--                    <input value="<c:out value="${record.entryDate}"/>"--%>
+                </c:if>
+            </div>
+            <div>
+                <c:if test="${record != null}">
+                    <span style="color:Black;"><b>Amount:</b></span> <input type="number" name="amount" step="0.01" value="<c:out value="${record.amount}"/>" placeholder="What was the value?" style="color:DimGrey;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>
+<%--                    <input value="<c:out value="${record.amount}"/>"--%>
+                </c:if>
+            </div>
+            <br>
+            <br>
+            <div>
+                <button type="submit" onclick="myFunction()"  id="button" style="background-color: GoldenRod; margin-left: 80%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Update entry</span></button>
+            </div>
+
+        </form>
 
     </div>
 

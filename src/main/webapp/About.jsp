@@ -114,14 +114,14 @@
 </head>
 
 <div class="sidenav">
-    <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>
-    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/ReportsPage'>&#128270; Find entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/OverviewPage'>&#128195; List entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/DeletePage'>&#128465; Delete entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/index'><span style="font-size: 16px">&#127968; Home</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'><span style="font-size: 16px">&#128181; New entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'><span style="font-size: 16px">&#128221; Edit entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/ReportsPage'><span style="font-size: 16px">&#128270; Find entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/OverviewPage'><span style="font-size: 16px">&#128195; List entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/DeletePage'><span style="font-size: 16px">&#128465; Delete entries</span></a></p>
     <br>
-    <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
+    <a href='${pageContext.request.contextPath}/About'><span style="font-size: 16px">&#9187; About</span></a>
 </div>
 
 <div class="content">

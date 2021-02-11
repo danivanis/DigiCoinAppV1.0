@@ -55,10 +55,10 @@
             color: #434A54;
         }
 
-        .amount {
+/*        .amount {
             color: #DA4453;
             text-align: right;
-        }
+        }*/
 
         #button1 {
             position: relative;
@@ -109,7 +109,8 @@
         }
 
         #form-box {
-            width: 800px;
+            position: relative;
+            width: 900px;
             margin: 20px auto;
             padding-left: 0px;
         }
@@ -141,7 +142,7 @@
             width: 100px;
         }
 
-        #type {
+        /*#type {
             width: 50px;
         }
 
@@ -161,7 +162,7 @@
             margin: auto;
             text-align: center;
         }
-
+*/
 
         /* Style the side navigation */
         .sidenav {
@@ -199,6 +200,7 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
         function myCategory() {
             // alert("Update was successful!");
@@ -215,18 +217,19 @@
         }
     </script>
 
+
 </head>
 <body>
 
 <div class="sidenav">
-    <p><a href='${pageContext.request.contextPath}/index'>&#127968; Home</a></p>
-    <p><a href='${pageContext.request.contextPath}/InputPage'>&#128181; New entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/UpdatePage'>&#128221; Edit entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/ReportsPage'>&#128270; Find entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/OverviewPage'>&#128195; List entries</a></p>
-    <p><a href='${pageContext.request.contextPath}/DeletePage'>&#128465; Delete entries</a></p>
+    <p><a href='${pageContext.request.contextPath}/index'><span style="font-size: 16px">&#127968; Home</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/InputPage'><span style="font-size: 16px">&#128181; New entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/UpdatePage'><span style="font-size: 16px">&#128221; Edit entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/ReportsPage'><span style="font-size: 16px">&#128270; Find entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/OverviewPage'><span style="font-size: 16px">&#128195; List entries</span></a></p>
+    <p><a href='${pageContext.request.contextPath}/DeletePage'><span style="font-size: 16px">&#128465; Delete entries</span></a></p>
     <br>
-    <a href='${pageContext.request.contextPath}/About'>&#9187; About</a>
+    <a href='${pageContext.request.contextPath}/About'><span style="font-size: 16px">&#9187; About</span></a>
 </div>
 
 <div class="content">
@@ -237,36 +240,40 @@
             <meta charset="ISO-8859-1">
 
             <div>
-                <button onclick="myCategory()" type="submit" id="button1" style="background-color: #df4885; margin-left: 0%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show category cost split in Pie Chart!</b></button>
+                <button onclick="myCategory()" type="submit" id="button1" style="background-color: #df4885; margin-left: 6%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show category cost split in Pie Chart!</b></button>
             </div>
 
             <div>
-                <button onclick="myDate()" type="submit" id="button2" style="background-color: #df4885; margin-left: 0%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show calendar date cost split in Pie Chart!</b></button>
+                <button onclick="myDate()" type="submit" id="button2" style="background-color: #df4885; margin-left: 6%; padding: 5px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><b>Show calendar date cost split in Pie Chart!</b></button>
             </div>
 
             <table>
                 <tr>
-                    <th id="number" style="width:5%" class="center" bgcolor="SlateGrey">ID</th>
-                    <th id="type" style="width:18%" class="center" bgcolor="SlateGrey">Source</th>
+                    <th id="number" style="text-align: center; width:5%" bgcolor="SlateGrey">ID</th>
+                    <th id="type" style="text-align: center; width:17%" bgcolor="SlateGrey">Source</th>
                     <th style="text-align: center; width:20%" bgcolor="SlateGrey">Category</th>
                     <th id="date" style="text-align: center; width:15%" bgcolor="SlateGrey">Date</th>
-                    <th style="text-align: right; width:12%" id="amount" bgcolor="SlateGrey">Amount</th>
-                    <th style="width:30%" bgcolor="SlateGrey">Details</th>
+                    <th style="text-align: right; width:10%" id="amount" bgcolor="SlateGrey">Amount</th>
+                    <th style="width:21%" bgcolor="SlateGrey">Details</th>
+                    <th style="width:12%; text-align: center;" bgcolor="SlateGrey">Actions</th>
                 </tr>
                 <c:forEach items = "${list}" var = "records">
                     <tr style="line-height: 13px;">
-                        <td style="text-align: center;line-height: 13px;">${records.id}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.source}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.category}</td>
-                        <td required pattern = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" style="text-align: center;line-height: 13px;">${records.entryDate}</td>
-                        <td style="text-align: right;line-height: 13px;" >${records.amount}</td>
-                        <td style="line-height: 13px;">${records.description}</td>
+                        <td style="text-align: center;line-height: 10px; font-size: 14px;">${records.id}</td>
+                        <td style="text-align: center;line-height: 10px; font-size: 14px;">${records.source}</td>
+                        <td style="text-align: center;line-height: 10px; font-size: 14px;">${records.category}</td>
+                        <td style="text-align: center;line-height: 10px; font-size: 14px;">${records.entryDate}</td>
+                        <td style="text-align: right;line-height: 10px; font-size: 14px;" >${records.amount}</td>
+                        <td style="line-height: 10px; font-size: 14px;">${records.description}</td>
+                        <td style="text-align: center;"><a href="QuickUpdatePage?entryid=<c:out value='${records.id}' /> " style="text-decoration:none;">&#128221;</a>
+                            <a> </a> <a> </a> <a> </a>
+                            <a href="QuickDeletePage?entryid=<c:out value='${records.id}' />" style="text-decoration:none;">&#10060;</a></td>
                     </tr>
                 </c:forEach>
                 <tr>
-                    <td bgcolor="SlateGrey" colspan="4"  style="text-align: center;line-height: 13px; color: #F5F7FA;"><b>TOTAL</b></td>
+                    <td bgcolor="SlateGrey" colspan="4"  style="text-align: center;line-height: 10px; color: #F5F7FA; font-size: 14px;"><b>TOTAL</b></td>
                     <td id="TOTAL" type="number" lang="en-150" step="any" style="text-align: right;line-height: 13px; color: #F5F7FA;" bgcolor="SlateGrey"><b>${sum}</b></td>
-                    <td bgcolor="SlateGrey"></td>
+                    <td bgcolor="SlateGrey" colspan="2"></td>
                 </tr>
             </table>
 

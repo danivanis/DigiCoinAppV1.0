@@ -28,7 +28,7 @@ public class InputServlet extends HttpServlet {
         String category = request.getParameter("category");
         Date entryDate = null;
         try {
-            entryDate = new SimpleDateFormat("dd.MM.yyyy").parse(request.getParameter("date"));
+            entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
             System.out.println(entryDate);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -53,9 +53,9 @@ public class InputServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        response.sendRedirect("/OverviewPage");
 
-
-        request.getRequestDispatcher("/InputPage.jsp").forward(request, response);
+//        request.getRequestDispatcher("/InputPage.jsp").forward(request, response);
 
     }
 

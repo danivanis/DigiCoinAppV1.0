@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DigiCoin List by category</title>
+    <title>DigiCoin Delete entries</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv = "refresh" content = "2; url = ${pageContext.request.contextPath}/OverviewPage" />
     <style>
         * {
             box-sizing: border-box;
@@ -16,7 +16,7 @@
         body {
             background-image: url('https://i.imgur.com/YvUftM3.jpg');
             height: 100%;
-            background-attachment: fixed;
+            background-attachment:fixed;
             background-repeat: no-repeat;
             background-size: cover;
             margin: 0;
@@ -40,20 +40,17 @@
 
         table {
             text-align: left;
-            width: 800px;
-            margin: 0px auto;
+            width: 640px;
+            margin: 30px auto;
             border-radius: 3px;
             background-color: #fff;
         }
-
         table th {
             padding: 10px;
         }
-
-        table tr {
+        table tr:nth-child(odd) {
             background-color: #F5F7FA;
         }
-
         table td {
             padding: 10px 15px;
             color: #434A54;
@@ -64,67 +61,38 @@
             text-align: right;
         }
 
-        #button1 {
+        #button {
             position: relative;
             top: 0;
             color: #F5F7FA;
-            font-size: 15px;
+            padding: 20px;
             text-align: center;
-            line-height: 16px;
-            display: inline-block;
-            width: 800px;
-            background-color: #df489d;
+            line-height: 24px;
+            width: 200px;
+            background-color: #4FC1E9;
             border-radius: 3px;
             cursor: pointer;
             margin: auto;
             box-shadow: 0 3px #DAA520;
             transition: 0.1s ease;
         }
-
-        #button1:active {
+        #button:active {
             position: relative;
             box-shadow: 0 0px #4A89DC;
-            display: inline-block;
-            top: 3px;
-            box-shadow: 0 0;
-        }
-
-        #button2 {
-            position: relative;
-            top: 0;
-            color: #F5F7FA;
-            font-size: 15px;
-            text-align: center;
-            line-height: 16px;
-            display: inline-block;
-            width: 800px;
-            background-color: #df489d;
-            border-radius: 3px;
-            cursor: pointer;
-            margin: auto;
-            box-shadow: 0 3px #DAA520;
-            transition: 0.1s ease;
-        }
-
-        #button2:active {
-            position: relative;
-            box-shadow: 0 0px #4A89DC;
-            display: inline-block;
             top: 3px;
             box-shadow: 0 0;
         }
 
         #form-box {
-            width: 900px;
-            margin: 0px auto;
-            padding-left: 0px;
+            width: 650px;
+            margin: 30px auto;
+            padding-left: 15px;
         }
 
         form {
             color: #fff;
             margin: auto;
         }
-
         form select, form input {
             margin-bottom: 25px;
             color: #434A54;
@@ -133,17 +101,14 @@
             border-radius: 3px;
             border: 0;
         }
-
         form selectactive, form inputactive {
             border: 1px solid #4FC1E9;
             transition: 0.2s ease;
         }
-
         form div {
             display: inline-block;
             margin-right: 10px;
         }
-
         form span {
             font-size: 1.3em;
             font-weight: 100;
@@ -209,9 +174,15 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function myFunction() {
+            alert("Removal was successful!");
+        }
 
+    </script>
 
 </head>
+<body>
 
 <div class="sidenav">
     <p><a href='${pageContext.request.contextPath}/index'><span style="font-size: 16px">&#127968; Home</span></a></p>
@@ -227,42 +198,29 @@
 <div class="content">
     <br>
     <h1 style="color:DimGrey;">DigiCoin - Personal Expense Tracker</h1>
-    <div id="form-box">
-        <form method="post">
-            <meta charset="ISO-8859-1">
+    <br>
+<%--    <div id="form-box">--%>
+<%--        <form method="post">--%>
+<%--            <meta charset="ISO-8859-1">--%>
 
+<%--            <input type="hidden" name="entryid" value="<c:out value="${record.id}"/>">--%>
+<%--            <div style="margin-left: 25%";>--%>
+<%--                <span style="color:Black;"><b>Entry ID:</b></span> <input type="number" name="entryid" placeholder="Entry ID" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" required>--%>
+<%--            </div>--%>
+<%--            <br>--%>
+<%--            <br>--%>
+<%--            <br>--%>
+<%--            <div>--%>
+<%--                <button type="submit" onclick="myFunction()"  id="button" style="background-color: #ff4040; margin-left: 110%; padding: 17px 1px;border: none;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" value="Submit"><span>Delete entry</span></button>--%>
+<%--            </div>--%>
 
-            <table>
-                <tr>
-                    <th id="number" style="width:5%" class="center" bgcolor="SlateGrey">ID</th>
-                    <th id="type" style="width:18%" class="center" bgcolor="SlateGrey">Source</th>
-                    <th style="text-align: center; width:20%" bgcolor="SlateGrey">Category</th>
-                    <th id="date" style="text-align: center; width:15%" bgcolor="SlateGrey">Date</th>
-                    <th style="text-align: right; width:12%" id="amount" bgcolor="SlateGrey">Amount</th>
-                    <th style="width:30%" bgcolor="SlateGrey">Details</th>
-                </tr>
-                <c:forEach items="${list}" var="records">
-                    <tr style="line-height: 13px;">
-                        <td style="text-align: center;line-height: 13px;">${records.id}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.source}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.category}</td>
-                        <td style="text-align: center;line-height: 13px;">${records.entryDate}</td>
-                        <td style="text-align: right;line-height: 13px;">${records.amount}</td>
-                        <td style="line-height: 13px;">${records.description}</td>
-                    </tr>
-                </c:forEach>
-<%--                <tr>--%>
-<%--                    <td bgcolor="SlateGrey" colspan="4" style="text-align: center;line-height: 13px; color: #F5F7FA;">--%>
-<%--                        <b>TOTAL</b></td>--%>
-<%--                    <td id="TOTAL" style="text-align: right;line-height: 13px; color: #F5F7FA;" bgcolor="SlateGrey">--%>
-<%--                        <b>${sum}</b></td>--%>
-<%--                    <td bgcolor="SlateGrey"></td>--%>
-<%--                </tr>--%>
-            </table>
+<%--        </form>--%>
 
-        </form>
-
-    </div>
+<%--    </div>--%>
+    <br>
+    <br>
+    <h2 style="color:GoldenRod;/*text-shadow: 0 5px 5px DimGrey;*/"><b>The item was deleted successfully!</b>
+    </h2>
 
 </div>
 

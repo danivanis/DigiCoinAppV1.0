@@ -76,6 +76,51 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
+    public Record selectRecord(int id) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Record record = null;
+
+        try {
+            connection = DatabaseConnectionManager.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE id = ?");
+            preparedStatement.setInt(1, id);
+            System.out.println("SELECT * FROM record WHERE id = ?");
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                record = new Record();
+                record.setId(resultSet.getInt("id"));
+                record.setSource(resultSet.getString("source"));
+                record.setCategory(resultSet.getString("category"));
+                record.setEntryDate(resultSet.getDate("entry_date"));
+                record.setAmount(resultSet.getDouble("entry_amount"));
+                record.setDescription(resultSet.getString("entry_description"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return record;
+    }
+
+    @Override
     public List<Record> selectByText(String details) {
         List<Record> records = new ArrayList<Record>();
         Connection connection = null;
@@ -505,5 +550,7 @@ public class RecordDaoImpl implements RecordDao {
 
         return sum;
     }
+
+
 
 }

@@ -1,20 +1,17 @@
 package servlets;
 
 import DAO.RecordDaoImpl;
-import entities.Record;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(urlPatterns = {"/DeletePage"})
+@WebServlet(urlPatterns = {"/QuickDeletePage"})
 
-public class DeleteServlet extends HttpServlet {
+public class QuickDeleteServlet extends HttpServlet {
     private RecordDaoImpl recordDaoImpl;
 
     public void init(){
@@ -22,7 +19,16 @@ public class DeleteServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e deletepage doPost");
+        System.out.println("aici e QuickDeletePage doPost");
+
+//        this.doGet(request, response);
+
+        response.sendRedirect("/OverviewPage");
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("aici e QuickDeletePage doGet");
 
         Integer entryID = Integer.valueOf(request.getParameter("entryid"));
 
@@ -32,14 +38,7 @@ public class DeleteServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("/OverviewPage");
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("aici e deletepage doGet");
-
-        request.getRequestDispatcher("/DeletePage.jsp").forward(request, response);
+        response.sendRedirect("/QuickDeletePage.jsp");
 
     }
 }
