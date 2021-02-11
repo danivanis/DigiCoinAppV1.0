@@ -130,7 +130,7 @@ public class RecordDaoImpl implements RecordDao {
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE UPPER(entry_description) LIKE ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE UPPER(entry_description) LIKE ? ORDER BY id ASC");
             preparedStatement.setString(1, "%" + details.toUpperCase() + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -184,7 +184,7 @@ public class RecordDaoImpl implements RecordDao {
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE category LIKE ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE category LIKE ? ORDER BY id ASC");
             preparedStatement.setString(1, "%" + category + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -239,7 +239,7 @@ public class RecordDaoImpl implements RecordDao {
 
         try {
             connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM record WHERE entry_date = ? ORDER BY id ASC");
             preparedStatement.setDate(1, new java.sql.Date(entryDate.getTime()));
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

@@ -36,7 +36,7 @@ public class ListByDateServlet extends HttpServlet {
 
         java.util.Date entryDate = null;
         try {
-            entryDate = new SimpleDateFormat("dd.MM.yyyy").parse(request.getParameter("date"));
+            entryDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
             System.out.println(entryDate);
         } catch (ParseException e) {
             e.printStackTrace();

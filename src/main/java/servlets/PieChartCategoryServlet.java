@@ -52,7 +52,7 @@ public class PieChartCategoryServlet extends HttpServlet {
 
         try {
             dataset.executeQuery("SELECT category, SUM(entry_amount) FROM record GROUP BY category ORDER BY category ASC");
-            JFreeChart chart = ChartFactory.createPieChart("Monthly Expenses",
+            JFreeChart chart = ChartFactory.createPieChart("Expenses Overview - Split by category",
                     dataset, true, true, false);
 
             PiePlot piePlot = (PiePlot) chart.getPlot();

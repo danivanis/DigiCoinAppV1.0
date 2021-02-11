@@ -49,7 +49,7 @@ public class PieChartDateServlet extends HttpServlet {
 
         try {
             dataset.executeQuery("SELECT entry_date, SUM(entry_amount) FROM record GROUP BY entry_date ORDER BY entry_date ASC");
-            JFreeChart chart = ChartFactory.createPieChart("Monthly Expenses",
+            JFreeChart chart = ChartFactory.createPieChart("Expenses Overview - Split by date",
                     dataset, true, true, false);
 
             PiePlot piePlot = (PiePlot) chart.getPlot();
