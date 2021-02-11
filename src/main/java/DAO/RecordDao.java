@@ -21,10 +21,6 @@ public interface RecordDao {
 
     List<Record> selectAll();
 
-    List<Record> sumByCategory();
-
-    double sumByCategory (String category);
-
     double sumAll();
 
     void delete(int id);

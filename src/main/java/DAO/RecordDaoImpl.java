@@ -336,54 +336,6 @@ public class RecordDaoImpl implements RecordDao {
     }
 
     @Override
-    public List<Record> sumByCategory() {
-        List<Record> records = new ArrayList<Record>();
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-
-        try {
-            connection = DatabaseConnectionManager.getConnection();
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT category, SUM(entry_amount) FROM record GROUP BY category ORDER BY category ASC");
-            while (resultSet.next()) {
-                Record record = new Record();
-                record.setCategory(resultSet.getString("category"));
-                record.setAmount(resultSet.getDouble("entry_amount"));
-                records.add(record);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return records;
-    }
-
-    @Override
     public void delete(int id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -499,58 +451,5 @@ public class RecordDaoImpl implements RecordDao {
 
         return sum;
     }
-
-    @Override
-    public double sumByCategory(String category) {
-
-        double sum = 0.00;
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        Record record = new Record();
-
-        try {
-            connection = DatabaseConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT SUM(entry_amount) FROM record WHERE category = ?");
-            preparedStatement.setString(1, record.getCategory());
-            resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            String value = resultSet.getString(1);
-            System.out.println(value);
-            double sumVar = Double.parseDouble(value);
-            sum = Math.round(sumVar * 100.00) / 100.00;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (preparedStatement != null) {
-                try {
-                    preparedStatement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return sum;
-    }
-
-
 
 }
