@@ -23,14 +23,7 @@ public class OverviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e overviewpage doPost");
 
-        RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
-        List<Record> records = recordDaoImpl.selectAll();
-
-        request.setAttribute("list", records);
-
-        request.setAttribute("sum",recordDaoImpl.sumAll());
-
-        request.getRequestDispatcher("/OverviewPage.jsp").forward(request, response);
+        this.doGet(request, response);
 
     }
 
