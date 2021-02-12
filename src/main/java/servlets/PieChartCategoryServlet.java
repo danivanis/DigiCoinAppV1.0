@@ -60,7 +60,7 @@ public class PieChartCategoryServlet extends HttpServlet {
             piePlot.setSectionPaint("Miscellaneous", new Color(0,36,36));
             piePlot.setSectionPaint("Transportation", new Color(0,204,153));
             piePlot.setSectionPaint("Utilities", new Color(0,168,107));
-            piePlot.setLabelBackgroundPaint(new Color(242, 243, 245));
+//            piePlot.setLabelBackgroundPaint(new Color(242, 243, 245));
 
             Image image = Toolkit.getDefaultToolkit().getImage("C:/Users/Dan/IdeaProjects/DigiCoinAppV1.0/DigiCoin - background image.jpg");
 
