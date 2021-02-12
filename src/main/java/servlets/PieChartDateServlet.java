@@ -53,13 +53,6 @@ public class PieChartDateServlet extends HttpServlet {
                     dataset, true, true, false);
 
             PiePlot piePlot = (PiePlot) chart.getPlot();
-//            piePlot.setSectionPaint("Dining", new Color (0,255,255));
-//            piePlot.setSectionPaint("Entertainment", new Color(0, 163, 163));
-//            piePlot.setSectionPaint("Health", new Color(0,97,97));
-//            piePlot.setSectionPaint("Housing", new Color(0,66,66));
-//            piePlot.setSectionPaint("Miscellaneous", new Color(0,36,36));
-//            piePlot.setSectionPaint("Transportation", new Color(0,204,153));
-//            piePlot.setSectionPaint("Utilities", new Color(0,168,107));
             piePlot.setLabelBackgroundPaint(new Color(242, 243, 245));
 
             Image image = Toolkit.getDefaultToolkit().getImage("C:/Users/Dan/IdeaProjects/DigiCoinAppV1.0/DigiCoin - background image.jpg");
