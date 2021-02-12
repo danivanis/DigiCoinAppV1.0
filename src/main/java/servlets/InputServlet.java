@@ -55,8 +55,6 @@ public class InputServlet extends HttpServlet {
 
         response.sendRedirect("/OverviewPage");
 
-//        request.getRequestDispatcher("/InputPage.jsp").forward(request, response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

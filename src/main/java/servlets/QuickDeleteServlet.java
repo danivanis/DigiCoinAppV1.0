@@ -21,8 +21,6 @@ public class QuickDeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("aici e QuickDeletePage doPost");
 
-//        this.doGet(request, response);
-
         response.sendRedirect("/OverviewPage");
 
     }

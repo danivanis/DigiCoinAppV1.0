@@ -11,9 +11,7 @@ public class Record {
     private double amount;
     private String source;
 
-
     public Record() {
-
     }
 
     public Record(String source, String category, Date entryDate, String description, double amount) {

@@ -19,9 +19,7 @@ public class ListByCategoryServlet extends HttpServlet {
     RecordDaoImpl recordDaoImpl = new RecordDaoImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*System.out.println("aici e ListByCategoryPage doPost");
-
-        response.sendRedirect("ListByCategory.jsp");*/
+        System.out.println("aici e ListByCategoryPage doPost");
 
         this.doGet(request, response);
     }

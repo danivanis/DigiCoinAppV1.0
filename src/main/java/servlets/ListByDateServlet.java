@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -23,9 +22,7 @@ public class ListByDateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*System.out.println("aici e ListByDatePage doPost");*/
-/*
-        response.sendRedirect("ListByDate.jsp");*/
+        System.out.println("aici e ListByDatePage doPost");
 
         this.doGet(request, response);
     }

@@ -7,7 +7,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.labels.PieSectionLabelGenerator;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.jdbc.JDBCPieDataset;
 
 import javax.servlet.ServletException;
@@ -19,9 +18,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.NumberFormat;
 
 @WebServlet(urlPatterns = {"/PieChartCategory"})
